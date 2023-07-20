@@ -8,7 +8,7 @@ from utils.tencent.sms import send_sms_single
 import random
 from user.forms.bootstrap import BootStrap
 class LoginSmsForm(BootStrap,forms.Form):
-    phone_number = forms.CharField(
+    mobile_phone = forms.CharField(
         label='手机号',
         validators=[RegexValidator(r'^(1[3|4|5|6|7|8|9])\d{9}$', '手机号格式不正确'), ]
     )

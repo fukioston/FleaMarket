@@ -24,7 +24,7 @@ class SendSmsForm(forms.Form):
     def clean_mobile_phone(self):
         # 从表单中取出mobile_phone
         mobile_phone = self.cleaned_data['mobile_phone']
-
+        print(mobile_phone)
         tpl = self.request.GET.get('tpl')
         template_id = settings.TENCENT_SMS_TEMPLATE.get(tpl)
         if not template_id:
