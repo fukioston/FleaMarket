@@ -19,4 +19,5 @@ from user.views import login
 urlpatterns = [
     path('login/', login.login)
 
+
 ]
