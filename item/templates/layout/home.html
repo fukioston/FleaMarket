@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../static/plugins/bootstrap-3.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../static/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+    <style type="text/css">
+        .row{
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10%;
+        }
+        .space{
+            height: 150px;
+        }
+        #search{
+            height: 150px;
+        }
+        .input-group{
+            width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">nk_bug</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user_obj %}
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">管理中心</a></li>
+                        <li><a href="{% url 'logout' %}">退出</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">登录</a></li>
+                   <li><a href="{% url 'register' %}">注册</a></li>
+                {% endif %}
+
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="space">
+
+</div>
+<div id="search">
+  <div class="input-group">
+    <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥198.50</h3>
+        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥198.50</h3>
+        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥198.50</h3>
+        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥198.50</h3>
+        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="../../pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
+      <div class="caption">
+        <h3>¥27.50</h3>
+        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
+        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="space">
+
+</div>
+<script src="../../../static/plugins/bootstrap-3.4.1/js/bootstrap.js"></script>
+</body>
+</html>
