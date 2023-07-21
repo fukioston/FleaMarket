@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 
 from user.forms.edit_info import InfoForm
+from user.forms.edit_pwd import PwdForm
 from user.models import UserInfo
 from item.models import Items
 
@@ -49,3 +50,23 @@ def edit_info(request):
         user.save()
         print('info_saved!')
         return redirect('/user/home/')
+
+
+def edit_pwd(request):
+    info = request.session.get('info')
+    user_id = info['id']
+    if request.method == 'GET':
+        form = PwdForm(request)
+        return render(request, 'user/edit_pwd.html', {'form': form})
+
+    form = PwdForm(request, data=request.POST)
+    user = UserInfo.objects.filter(id=user_id).first()
+    if form.is_valid():
+        old_pwd = form.cleaned_data['old_pwd']
+        new_pwd = form.cleaned_data['new_pwd']
+        if old_pwd==user.password:
+            user.password=new_pwd
+            return redirect('/user/home/')
+        else:
+            form.add_error('old_pwd', '旧密码错误')
+            return render(request, 'user/edit_pwd.html', {'form': form})

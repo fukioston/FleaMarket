@@ -28,6 +28,7 @@ urlpatterns = [
     path('register/',register.register,name="register"),
     path('image/code/',login.image_code,name='image_code'),
     path('on_sales/',home.on_sales,name="on_sales"),
-    path('logout/',home.logout,name="logout")
+    path('logout/',home.logout,name="logout"),
+    path('edit_pwd/',home.edit_pwd,name='edit_pwd')
 ]
 
