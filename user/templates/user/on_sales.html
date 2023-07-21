@@ -8,6 +8,7 @@
             {% for item in on_sales %}
             <div class="col-md-4 mb-4">
                 <div class="card">
+                    <a id="getinfo" data-id="{{ item.id }}" href="/user/home/">
                     <img src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top" alt="货品图片1">
                     <div class="card-body">
                         <h5 class="card-title">商品名称: {{ item.gname }}</h5>
