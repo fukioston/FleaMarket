@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path
-from user.views import login, home
+from user.views import login, home, register
 
 urlpatterns = [
     path('login/', login.login, name="login"),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('sms/code/', login.send_sms),
     path('login/sms/', login.login_sms),
     path('index/', login.index),
-    path('home/', home.home)
+    path('home/', home.home),
+    path('register/',register.register)
 ]

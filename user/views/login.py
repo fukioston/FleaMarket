@@ -40,17 +40,11 @@ def send_sms(request):
 def login_sms(request):
     if request.method == 'GET':
         form = LoginSmsForm(request)
-<<<<<<< Updated upstream
+
         return render(request, 'user/login_sms.html',{'form':form})
 
     form = LoginSmsForm(request, data=request.POST)
     try:
-=======
-        return render(request, 'user/login_sms.html', {'form': form})
-    else:
-        form = LoginSmsForm(request, data=request.POST)
-        print("nimabi")
->>>>>>> Stashed changes
         if form.is_valid():
             mobile_phone = form.cleaned_data['mobile_phone']
             user_object = models.UserInfo.objects.filter(mobile_phone=mobile_phone).first()
@@ -69,13 +63,14 @@ def index(request):
     return render(request, 'user/index.html')
 
 
-def register(request):
-    if request.method == 'GET':
-        form = RegisterForm(request)
-        return render(request, 'user/register.html', {'form': form})
-    else:
-        form = RegisterForm(request, data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('user/login/sms/')
-        return JsonResponse({'status': False, 'error': form.errors})
+# def register(request):
+#     if request.method == 'GET':
+#         form = RegisterForm(request)
+#         return render(request, 'user/register.html', {'form': form})
+#     else:
+#         return render(request, 'user/register.html')
+#         # form = RegisterForm(request, data=request.POST)
+#         # if form.is_valid():
+#         #     form.save()
+#         #     return redirect('user/login/sms/')
+#         # return JsonResponse({'status': False, 'error': form.errors})
