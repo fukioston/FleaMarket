@@ -52,7 +52,7 @@
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
                         <div class="clearfix">
-                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg"></span></div>
+                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg">{{ field.errors.0 }}</span></div>
                             <div class="col-md-6"><input type="button" id="btnSms" class="btn btn-default"
                                                          value="点击获取验证码">
                             </div>
@@ -62,7 +62,7 @@
             <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {{ field }}
-                    <span class="error-msg"></span>
+                    <span class="error-msg">{{ field.errors.0 }}</span>
                     </div>
             {% endif %}
         {% endfor %}
@@ -78,7 +78,6 @@ console.log('dianji')
 
 
       function btnSms_click(){
-
  $('#btnSms').click(function(){
         $('.error-msg').empty();
      {#获取输入的手机号码#}
@@ -123,6 +122,7 @@ function sendSmsRemind() {
  $smsBtn.val('点击获取验证码').prop('disabled', false);
  }
  }, 1000) }
+
     </script>
 {% endblock %}
 </body>

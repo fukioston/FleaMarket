@@ -29,7 +29,6 @@ class LoginSmsForm(BootStrap, forms.Form):
         exists = models.UserInfo.objects.filter(mobile_phone=mobile_phone).exists()
         print("??succeed")
         if not exists:
-            print("??f")
             raise ValidationError('⼿机号不存在')
         return mobile_phone
 
@@ -38,7 +37,7 @@ class LoginSmsForm(BootStrap, forms.Form):
         mobile_phone = self.cleaned_data.get('mobile_phone')
         # ⼿机号不存在，则验证码⽆需再校验
         if not mobile_phone:
-            return code
+            raise ValidationError('⼿机号不存在')
         session_code = self.request.session.get('code')  # 从session中获取验证码
         if not session_code:
             raise ValidationError('验证码失效或未发送，请重新发送')
