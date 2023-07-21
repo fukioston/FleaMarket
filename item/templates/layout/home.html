@@ -25,6 +25,13 @@
             width: 900px;
             margin: 0 auto;
         }
+        .ellipsis {
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 显示2行文本 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+        }
     </style>
 </head>
 <body>
@@ -104,8 +111,8 @@
                         ￥
                         {{ item.price }}
                     </h3>
-                    <p>{{ item.gname }}</p>
-                    <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+                    <p class="ellipsis">{{ item.gname }}</p>
+                    <p ><a href="#" class="btn btn-primary" role="button">收藏</a></p>
                 </div>
             </div>
         </div>
