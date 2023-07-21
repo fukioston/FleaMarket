@@ -1,12 +1,12 @@
-{% extends 'layout/basic.html' %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
 
-    {% block css %}
     <style>
         .account {
             width: 400px;
@@ -28,9 +28,30 @@
             color: red;
         }
     </style>
-    {% endblock %}
+
 </head>
-{% block content %}
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"> 二手交易平台 </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/item/">返回</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <body>
 <div class="account">
     <h2>用户注册</h2>
@@ -64,12 +85,13 @@
         </div>
     </form>
 </div>
-{% endblock %}
-{% block js %}
+
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
     <script>
     btnSms_click()
     btnSubmit_click()
-console.log('dianji')
+
 
 
       function btnSms_click(){
@@ -144,6 +166,5 @@ function btnSubmit_click() {
  })
  }) }
     </script>
-{% endblock %}
 </body>
 </html>
