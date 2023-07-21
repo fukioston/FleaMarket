@@ -1,0 +1,24 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1 class="my-4">我的在售</h1>
+        <div class="row">
+            <!-- 货品卡片 -->
+            {% for item in on_sales %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top" alt="货品图片1">
+                    <div class="card-body">
+                        <h5 class="card-title">商品名称: {{ item.gname }}</h5>
+                        <p class="card-text">商品描述: {{ item.intro_txt }}</p>
+                        <p class="card-text">价格: {{ item.price }}</p>
+                        <p class="card-text">出售者: {{ user_info.username }}</p>
+                        <p class="card-text">联系方式: {{ user_info.email}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

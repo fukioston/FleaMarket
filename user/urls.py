@@ -24,5 +24,6 @@ urlpatterns = [
     path('sms/code/', login.send_sms),
     path('login/sms/', login.login_sms),
     path('index/', login.index),
-    path('home/', home.home)
+    path('home/', home.home),
+    path('on_sales/',home.on_sales)
 ]
