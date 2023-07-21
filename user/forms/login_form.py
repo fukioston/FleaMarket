@@ -12,14 +12,12 @@ class LoginForm(BootStrap, forms.Form):
         label='手机号',
         widget=forms.TextInput(),
         required=True,
-
         validators=[RegexValidator(r'^(1[3|4|5|6|7|8|9])\d{9}$', '手机号格式不正确'), ]
     )
     password = forms.CharField(
         label='密码',
-        widget=forms.PasswordInput(),
-        required=True,
-
+        widget=forms.PasswordInput(render_value=True),
+        required=True
     )
 
     def __init__(self, request, *args, **kwargs):

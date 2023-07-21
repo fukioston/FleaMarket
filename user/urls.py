@@ -18,7 +18,7 @@ from django.urls import path
 from user.views import login, home
 
 urlpatterns = [
-    path('login/', login.login),
+    path('login/', login.login, name="login"),
     path('sms/code/', login.send_sms),
     path('login/sms/', login.login_sms),
     path('sms/code/', login.send_sms),

@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）完成登录界面功能的编写">
       <change beforePath="$PROJECT_DIR$/.idea/NkuFleaMarket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NkuFleaMarket.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,6 +12,9 @@
       <change beforePath="$PROJECT_DIR$/user/templates/user/login_sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/login_sms.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views/login.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）完成登录界面功能的编写" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,29 +48,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;user&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/code/Django/NkuFleaMarket/user/migrations&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/code/Django/NkuFleaMarket/user",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\Django\NkuFleaMarket\user" />
       <recent name="E:\code\Django\NkuFleaMarket\user\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\Django\NkuFleaMarket" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,8 +116,12 @@
       <workItem from="1689856687730" duration="230000" />
       <workItem from="1689900878428" duration="6605000" />
       <workItem from="1689907524173" duration="84000" />
+<<<<<<< Updated upstream
       <workItem from="1689909530737" duration="2440000" />
       <workItem from="1689914099032" duration="2712000" />
+=======
+      <workItem from="1689907742981" duration="10623000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="（branch_user）编写basic母版，创建login网页">
       <option name="closed" value="true" />

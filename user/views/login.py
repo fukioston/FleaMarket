@@ -4,6 +4,7 @@ from jsonschema.exceptions import ValidationError
 from user.forms.login_form import LoginForm
 from user import models
 from user.forms.login_sms_form import LoginSmsForm
+from user.forms.register_form import RegisterForm
 from user.forms.send_sms_form import SendSmsForm
 from user.models import UserInfo
 
@@ -19,8 +20,9 @@ def login(request):
         try:
             user = UserInfo.objects.get(mobile_phone=phone_number)
             if user.password == password:
-                # 登录成功，可以将用户标识存储在session中等操作
-                return HttpResponse('登录成功!')  # 重定向到登录成功后的页面
+                # 登录成功，将用户标识存储在session中
+                request.session["info"] = {'id': user.id, 'name': user.username}
+                return redirect('../home/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
         except UserInfo.DoesNotExist:
@@ -38,10 +40,17 @@ def send_sms(request):
 def login_sms(request):
     if request.method == 'GET':
         form = LoginSmsForm(request)
+<<<<<<< Updated upstream
         return render(request, 'user/login_sms.html',{'form':form})
 
     form = LoginSmsForm(request, data=request.POST)
     try:
+=======
+        return render(request, 'user/login_sms.html', {'form': form})
+    else:
+        form = LoginSmsForm(request, data=request.POST)
+        print("nimabi")
+>>>>>>> Stashed changes
         if form.is_valid():
             mobile_phone = form.cleaned_data['mobile_phone']
             user_object = models.UserInfo.objects.filter(mobile_phone=mobile_phone).first()
@@ -56,16 +65,14 @@ def login_sms(request):
     return render(request, 'user/login_sms.html', {'form': form})
 
 
-
-
 def index(request):
     return render(request, 'user/index.html')
 
 
 def register(request):
     if request.method == 'GET':
-        form=RegisterForm(request)
-        return render(request, 'user/register.html',{'form':form})
+        form = RegisterForm(request)
+        return render(request, 'user/register.html', {'form': form})
     else:
         form = RegisterForm(request, data=request.POST)
         if form.is_valid():
