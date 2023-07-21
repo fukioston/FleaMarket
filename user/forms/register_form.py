@@ -88,7 +88,7 @@ class RegisterForm(BootStrap,forms.ModelForm):
         code = self.cleaned_data['code']
         mobile_phone = self.cleaned_data.get('mobile_phone')
         if not mobile_phone :
-            raise ValidationError('⼿机号不存在')
+            return code
         redis_code = self.request.session.get('code')  # 从session中获取验 证码
         if not redis_code:
             raise ValidationError('验证码失效或未发送，请重新发送')

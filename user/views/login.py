@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from jsonschema.exceptions import ValidationError
@@ -7,17 +9,18 @@ from user.forms.login_sms_form import LoginSmsForm
 from user.forms.register_form import RegisterForm
 from user.forms.send_sms_form import SendSmsForm
 from user.models import UserInfo
+from utils.image_code import check_code
 
 
 def login(request):
-    form = LoginForm(request)
     if request.method == 'GET':
+        form = LoginForm(request)
         return render(request, 'user/login.html', {'form': form})
     form = LoginForm(request, data=request.POST)
-    if form.is_valid():
-        phone_number = form.cleaned_data['mobile_phone']
-        password = form.cleaned_data['password']
-        try:
+    try:
+        if form.is_valid():
+            phone_number = form.cleaned_data['mobile_phone']
+            password = form.cleaned_data['password']
             user = UserInfo.objects.get(mobile_phone=phone_number)
             if user.password == password:
                 # 登录成功，将用户标识存储在session中
@@ -25,8 +28,8 @@ def login(request):
                 return redirect('../home/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
-        except UserInfo.DoesNotExist:
-            form.add_error('mobile_phone', '该手机号未注册!')  # 添加用户不存在的验证错误
+    except ValidationError as e:
+        form.add_error('code', e)
     return render(request, 'user/login.html', {'form': form})
 
 
@@ -40,6 +43,7 @@ def send_sms(request):
 def login_sms(request):
     if request.method == 'GET':
         form = LoginSmsForm(request)
+
         return render(request, 'user/login_sms.html',{'form':form})
 
     form = LoginSmsForm(request, data=request.POST)
@@ -56,19 +60,18 @@ def login_sms(request):
     except ValidationError as e:
         form.add_error('code', e)
     return render(request, 'user/login_sms.html', {'form': form})
-
+def image_code(request):
+    # 生成图片验证码
+    image_object, code = check_code()
+    request.session['image_code'] = code
+    request.session.set_expiry(60)  # 主动修改session的过期时间为60s
+    # 将图⽚信息保存到内存中使⽤省去每次都去数据库查询的操作
+    stream = BytesIO()
+    image_object.save(stream, 'png')
+    return HttpResponse(stream.getvalue())
 
 def index(request):
     return render(request, 'user/index.html')
 
 
-def register(request):
-    if request.method == 'GET':
-        form = RegisterForm(request)
-        return render(request, 'user/register.html', {'form': form})
-    else:
-        form = RegisterForm(request, data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('user/login/sms/')
-        return JsonResponse({'status': False, 'error': form.errors})
+

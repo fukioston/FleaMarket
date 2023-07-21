@@ -14,3 +14,4 @@ local_settings.py
 */migrations/*.py
 # 除了init⽂件
 !*/migrations/__init__.py
+*.pyc

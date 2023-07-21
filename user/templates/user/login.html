@@ -22,6 +22,9 @@
             margin-top: 10px;
             text-align: center;
         }
+        .error-msg{
+            color:red
+        }
     </style>
 </head>
 <body>
@@ -31,14 +34,40 @@
         {% csrf_token %}
         {% for field in form %}
             <div class="form-group">
+            {% if field.name == 'code' %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                        <div class="clearfix">
+                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg">{{ field.errors.0 }}</span></div>
+                            <div class="col-md-6">
+                                 <img id="imageCode" src="{% url 'image_code' %}" alt="图片验证码">
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                 {{ field }}
                 <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
             </div>
+            {% endif %}
         {% endfor %}
         <input type="submit" value="登 录" class="btn btn-primary">
     </form>
 </div>
-
 </body>
+{% block js %}
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script>
+{#    打开页面即执行#}
+$(function () {
+ {#实现点击更换验证码图⽚#}
+ $('#imageCode').click(function () {
+ var oldSrc = $(this).attr('src');
+ $(this).attr('src', oldSrc + "?");
+ })
+ })
+    </script>
+{% endblock %}
+
 </html>
