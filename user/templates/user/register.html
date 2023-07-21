@@ -1,0 +1,129 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% block css %}
+    <style>
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px #aaa;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding: 20px 40px;
+        }
+
+        .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .error-msg{
+            color: red;
+        }
+    </style>
+    {% endblock %}
+</head>
+{% block content %}
+<body>
+<div class="account">
+    <h2>用户注册</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+{#        <div class="form-group">#}
+{#            <label>用户名</label>#}
+{#            {{ form.username }}#}
+{#            <span style="color: red;">{{ form.username.errors.0 }}</span>#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label>密码</label>#}
+{#            {{ form.password }}#}
+{#            <span style="color: red;">{{ form.password.errors.0 }}</span>#}
+{#        </div>#}
+        {% for field in form %}
+            {% if field.name == 'code' %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                        <div class="clearfix">
+                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg">{{ field.errors.0 }}</span></div>
+                            <div class="col-md-6"><input type="button" id="btnSms" class="btn btn-default"
+                                                         value="点击获取验证码">
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+            <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    <span class="error-msg">{{ field.errors.0 }}</span>
+                    </div>
+            {% endif %}
+        {% endfor %}
+
+        <input type="submit" value="登 录" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+    btnSms_click()
+console.log('dianji')
+
+
+      function btnSms_click(){
+ $('#btnSms').click(function(){
+        $('.error-msg').empty();
+     {#获取输入的手机号码#}
+     var mobile_phone=$('#id_mobile_phone').val();
+console.log(mobile_phone)
+     $.ajax({
+         {#请求的路由地址#}
+         url:"/user/sms/code/",
+         type:"GET",
+         data:{
+            mobile_phone:mobile_phone,
+             tpl:"register",
+         },
+         dataType:"JSON",
+         success:function(res){
+             if (res.status) {
+          sendSmsRemind(); }
+             else {
+ // 错误信息
+  console.log(res.err);
+                 // {status:False, error:{ mobile_phone: ["错误信 息"，],code: ["错误信息"，] } }
+    $.each(res.error, function (key, value) {
+    {#key：字段名#}
+    $("#id_" + key).next().text(value[0]);
+      }) }
+         }
+
+     })
+
+
+ })
+    }
+function sendSmsRemind() {
+ var $smsBtn = $('#btnSms');
+ $smsBtn.prop('disabled', true); // 禁⽤
+ var time = 60;
+ var remind = setInterval(function () {
+ $smsBtn.val(time + '秒重新发送');
+ time = time - 1;
+ if (time < 1) {
+ clearInterval(remind);
+ $smsBtn.val('点击获取验证码').prop('disabled', false);
+ }
+ }, 1000) }
+
+    </script>
+{% endblock %}
+</body>
+</html>

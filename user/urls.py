@@ -20,6 +20,7 @@ urlpatterns = [
     path('login/', login.login),
     path('sms/code/',login.send_sms),
     path('login/sms/',login.login_sms),
-    path('index/',login.index)
+    path('index/',login.index),
+    path('register/',login.register)
 
 ]

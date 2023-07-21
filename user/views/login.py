@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponse, redirect
 
 from user import models
 from user.forms.login_sms_form import LoginSmsForm
+from user.forms.register_form import RegisterForm
 from user.forms.send_sms_form import SendSmsForm
 
 
@@ -41,3 +42,15 @@ def login_sms(request):
 
 def index(request):
     return render(request, 'user/index.html')
+
+
+def register(request):
+    if request.method == 'GET':
+        form=RegisterForm(request)
+        return render(request, 'user/register.html',{'form':form})
+    else:
+        form = RegisterForm(request, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user/login/sms/')
+        return JsonResponse({'status': False, 'error': form.errors})
