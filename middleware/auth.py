@@ -13,7 +13,7 @@ class AuthMiddleware(MiddlewareMixin):
                                  '/user/sms/code/',
                                  '/user/login/sms/',
                                  '/user/index/',
-                                '/user/logout',
+                                 '/user/logout',
 
                                  ]:
             return
@@ -25,4 +25,5 @@ class AuthMiddleware(MiddlewareMixin):
             return
 
         # 2.没有登录过，重新回到登录页面
-        return redirect('/user/login/')
+        # return redirect('/user/login/')
+        return
