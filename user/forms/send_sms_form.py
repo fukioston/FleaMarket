@@ -33,11 +33,11 @@ class SendSmsForm(forms.Form):
         if tpl == 'login':
             if not exists:
                 print("??1")
-                return ValidationError('手机号不存在')
+                raise ValidationError('手机号不存在')
         else:
             if exists:
                 print("??2")
-                return ValidationError('手机号已存在')
+                raise ValidationError('手机号已存在')
         # 生成验证码
         code = random.randrange(1000, 9999)
         print("验证码：" + str(code))

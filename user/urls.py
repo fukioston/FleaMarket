@@ -19,7 +19,13 @@ from user.views import login
 
 urlpatterns = [
     path('login/', login.login),
+<<<<<<< HEAD
     path('sms/code/', login.send_sms),
     path('login/sms/', login.login_sms)
+=======
+    path('sms/code/',login.send_sms),
+    path('login/sms/',login.login_sms),
+    path('index/',login.index)
+>>>>>>> afa985a550d73070a98ab6f121685e06936c3a2b
 
 ]
