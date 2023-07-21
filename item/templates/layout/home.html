@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="../../../static/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Home</title>
     <style type="text/css">
-        .row{
+        .row {
             width: 100%;
             margin: 0 auto;
             padding: 0 10%;
         }
-        .space{
+
+        .space {
             height: 150px;
         }
-        #search{
+
+        #search {
             height: 150px;
         }
-        .input-group{
+
+        .input-group {
             width: 900px;
             margin: 0 auto;
         }
@@ -62,21 +65,20 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user_obj %}
                     <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">管理中心</a></li>
-                        <li><a href="">退出</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-                    {% else %}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">管理中心</a></li>
+                            <li><a href="">退出</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                {% else %}
                     <li><a href="">登录</a></li>
-                   <li><a href="">注册</a></li>
+                    <li><a href="">注册</a></li>
                 {% endif %}
-
 
 
             </ul>
@@ -87,136 +89,28 @@
 
 </div>
 <div id="search">
-  <div class="input-group">
-    <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
-  </div>
+    <div class="input-group">
+        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+    </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="{% static 'pic/5f4ed6422a9c3669.jpg.avif' %}" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥198.50</h3>
-        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥198.50</h3>
-        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥198.50</h3>
-        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/9b00b14906d6f5c0.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥198.50</h3>
-        <p>科麦斯喷笔枪便携电动喷漆笔丙烯颜料喷枪彩绘上色模型喷涂美甲气泵套装 【续航1小时】0.3口径喷笔枪标配 </p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="300px" height="400px">
-      <div class="caption">
-        <h3>¥27.50</h3>
-        <p>莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</p>
-        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-      </div>
-    </div>
-  </div>
+    {% for item in items_list %}
+        <div class="col-sm-4 col-md-3">
+            <div class="thumbnail">
+                <img src="{{item.img_index}}" alt="..." width="300px" height="400px">
+                <div class="caption">
+                    <h3>
+                        ￥
+                        {{ item.price }}
+                    </h3>
+                    <p>{{ item.gname }}</p>
+                    <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
 </div>
 <div class="space">
 
