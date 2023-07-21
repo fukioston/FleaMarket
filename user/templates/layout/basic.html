@@ -37,6 +37,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not user_info %}
+                    <li><a href="{% url 'register'%} ">注册</a></li>
                     <li><a href="{% url 'login'%} ">登录</a></li>
                 {% endif %}
 
