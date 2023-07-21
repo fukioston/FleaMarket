@@ -18,10 +18,10 @@ def home(request):
 def on_sales(request):
     info = request.session.get('info')
     user_id = info['id']
-    query_set = UserInfo.objects.filter(username=user_id).first()
+    query_set = UserInfo.objects.filter(id=user_id).first()
     on_sales = Items.objects.filter(userid=user_id)
 
-    return render(request, 'user/on_sales.html', {'on_sales': on_sales, 'user_info': query_set})
+    return render(request, 'user/on_sales.html', {'user_info': query_set, 'on_sales': on_sales})
 
 
 def logout(request):
@@ -31,11 +31,12 @@ def logout(request):
 def edit_info(request):
     info = request.session.get('info')
     user_id = info['id']
+    query_set = UserInfo.objects.filter(id=user_id).first()
     if request.method == 'GET':
         user_info = UserInfo.objects.filter(id=user_id).values_list('username', 'email', 'mobile_phone').first()
         init_info = {'username': user_info[0], 'mobile_phone': user_info[2], 'email': user_info[1]}
         form = InfoForm(request, initial=init_info)
-        return render(request, 'user/edit_info.html', {'form': form})
+        return render(request, 'user/edit_info.html', {'user_info': query_set, 'form': form})
 
     form = InfoForm(request, data=request.POST)
     user = UserInfo.objects.filter(id=user_id).first()
