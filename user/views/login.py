@@ -13,14 +13,14 @@ from utils.image_code import check_code
 
 
 def login(request):
-    form = LoginForm(request)
     if request.method == 'GET':
+        form = LoginForm(request)
         return render(request, 'user/login.html', {'form': form})
     form = LoginForm(request, data=request.POST)
-    if form.is_valid():
-        phone_number = form.cleaned_data['mobile_phone']
-        password = form.cleaned_data['password']
-        try:
+    try:
+        if form.is_valid():
+            phone_number = form.cleaned_data['mobile_phone']
+            password = form.cleaned_data['password']
             user = UserInfo.objects.get(mobile_phone=phone_number)
             if user.password == password:
                 # 登录成功，将用户标识存储在session中
@@ -28,8 +28,8 @@ def login(request):
                 return redirect('../home/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
-        except UserInfo.DoesNotExist:
-            form.add_error('mobile_phone', '该手机号未注册!')  # 添加用户不存在的验证错误
+    except ValidationError as e:
+        form.add_error('code', e)
     return render(request, 'user/login.html', {'form': form})
 
 
