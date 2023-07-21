@@ -11,11 +11,19 @@ import django
 django.setup()
 
 from . import models
+from random import *
 
-with open('utils/datas.json', encoding="utf-8", errors="ignore") as fr:
-    import json
-
-    datas = json.load(fr)
-
-    for data in datas:
-        models.Items.objects.create(gname=data['gname'], userid=data['userid'], price=data['price'], intro_txt=data['intro_txt'], img_index=data['img_index'])
+list = models.Items.objects.all()
+ran = []
+i = 0
+while True:
+    rn = randint(0, len(list) - 1)
+    if rn not in ran:
+        ran.append(rn)
+        i = i + 1
+    if i == 12:
+        break
+    finlist=[]
+    for r in ran:
+        finlist.append(list[int(r)])
+print(finlist)
