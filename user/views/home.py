@@ -66,6 +66,9 @@ def edit_pwd(request):
         old_pwd = form.cleaned_data['old_pwd']
         new_pwd = form.cleaned_data['new_pwd']
         if old_pwd==user.password:
+            if old_pwd==new_pwd:
+                form.add_error('new_pwd', '新密码不能与旧密码相同')
+                return render(request, 'user/edit_pwd.html', {'form': form})
             user.password=new_pwd
             return redirect('/user/home/')
         else:
