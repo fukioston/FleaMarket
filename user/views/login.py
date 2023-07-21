@@ -25,6 +25,7 @@ def login(request):
             if user.password == password:
                 # 登录成功，将用户标识存储在session中
                 request.session["info"] = {'id': user.id, 'name': user.username}
+                request.session.set_expiry(60 * 60 * 24 * 14)
                 return redirect('../home/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
@@ -64,7 +65,7 @@ def image_code(request):
     # 生成图片验证码
     image_object, code = check_code()
     request.session['image_code'] = code
-    request.session.set_expiry(60)  # 主动修改session的过期时间为60s
+    request.session['code'].set_expiry(60)  # 主动修改验证码的过期时间为60s
     # 将图⽚信息保存到内存中使⽤省去每次都去数据库查询的操作
     stream = BytesIO()
     image_object.save(stream, 'png')
