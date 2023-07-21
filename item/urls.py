@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.urls import path
-
+from . import views
 urlpatterns = [
-
+    path('', views.show_home),
+    path('details/<gid>', views.show_details)
 ]
