@@ -1,15 +1,31 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 
+from user.forms.login_form import LoginForm
 from user import models
 from user.forms.login_sms_form import LoginSmsForm
-from user.forms.register_form import RegisterForm
 from user.forms.send_sms_form import SendSmsForm
+from user.models import UserInfo
 
 
 def login(request):
-
-    return render(request, 'user/login.html')
+    form = LoginForm(request)
+    if request.method == 'GET':
+        return render(request, 'user/login.html', {'form': form})
+    form = LoginForm(request, data=request.POST)
+    if form.is_valid():
+        phone_number = form.cleaned_data['mobile_phone']
+        password = form.cleaned_data['password']
+        try:
+            user = UserInfo.objects.get(mobile_phone=phone_number)
+            if user.password == password:
+                # 登录成功，可以将用户标识存储在session中等操作
+                return HttpResponse('登录成功!')  # 重定向到登录成功后的页面
+            else:
+                form.add_error('password', '密码错误!')
+        except UserInfo.DoesNotExist:
+            form.add_error('mobile_phone', '该手机号未注册!')  # 添加用户不存在的验证错误
+    return render(request, 'user/login.html', {'form': form})
 
 
 def send_sms(request):
