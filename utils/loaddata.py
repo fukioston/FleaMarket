@@ -1,5 +1,7 @@
-from item.models import *
+
 from django.db.transaction import atomic
+
+from item.models import Items
 
 
 @atomic
@@ -9,5 +11,6 @@ def load_model():
         datas = json.load(fr)
 
         for data in datas:
-            item = Items.objects.create(gname=data['gname'], userid=data['userid'], price=data['price'],
+            Items.objects.create(gname=data['gname'], userid=data['userid'], price=data['price'],
                                         intro_txt=data['intro_txt'], img_index=data['img_index'])
+

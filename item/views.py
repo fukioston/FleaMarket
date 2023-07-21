@@ -2,7 +2,7 @@ from item import templates
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
 from .models import *
-
+from random import *
 
 def show_home(request):
     items_list = Items.objects.all()
