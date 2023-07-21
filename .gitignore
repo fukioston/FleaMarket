@@ -8,3 +8,5 @@ local_settings.py
 # database migrations
 */migrations/*.py
 # 除了init⽂件 !*/migrations/__init__.py
+#忽略本地编译器文件
+.idea/

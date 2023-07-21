@@ -90,8 +90,7 @@ console.log(mobile_phone)
          type:"GET",
          data:{
             mobile_phone:mobile_phone,
-             {#数据库里没东西，为了短信发送测试先改成register#}
-             tpl:"register",
+             tpl:"login",
          },
          dataType:"JSON",
          success:function(res){
@@ -99,7 +98,7 @@ console.log(mobile_phone)
           sendSmsRemind(); }
              else {
  // 错误信息
-  console.log(res);
+  console.log(res.err);
                  // {status:False, error:{ mobile_phone: ["错误信 息"，],code: ["错误信息"，] } }
     $.each(res.error, function (key, value) {
     {#key：字段名#}

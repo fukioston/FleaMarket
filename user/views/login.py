@@ -18,5 +18,5 @@ def send_sms(request):
 
 
 def login_sms(request):
-    form = LoginSmsForm(request, data=request.GET)
+    form = LoginSmsForm(request)
     return render(request, 'user/login_sms.html',{'form':form})

@@ -20,7 +20,7 @@ class SendSmsForm(forms.Form):
         label='手机号',
         validators=[RegexValidator(r'^(1[3|4|5|6|7|8|9])\d{9}$', '手机号格式不正确'), ]
     )
-
+    # 已经进行检验
     def clean_mobile_phone(self):
         # 从表单中取出mobile_phone
         mobile_phone = self.cleaned_data['mobile_phone']
