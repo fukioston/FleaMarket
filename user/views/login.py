@@ -40,17 +40,10 @@ def send_sms(request):
 def login_sms(request):
     if request.method == 'GET':
         form = LoginSmsForm(request)
-<<<<<<< Updated upstream
         return render(request, 'user/login_sms.html',{'form':form})
 
     form = LoginSmsForm(request, data=request.POST)
     try:
-=======
-        return render(request, 'user/login_sms.html', {'form': form})
-    else:
-        form = LoginSmsForm(request, data=request.POST)
-        print("nimabi")
->>>>>>> Stashed changes
         if form.is_valid():
             mobile_phone = form.cleaned_data['mobile_phone']
             user_object = models.UserInfo.objects.filter(mobile_phone=mobile_phone).first()
