@@ -1,5 +1,6 @@
 # pycharm 环境默认⽣成的⽂件 
-.idea/ .DS_Store
+.idea/ 
+.DS_Store
 # python默认⽣成的缓存⽂件
 __pycache__/
 *.py[cod]

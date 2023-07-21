@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）完成登录界面功能的编写">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/NkuFleaMarket.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d998c51e-e851-4cc5-96ca-bf543c61ae80.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d998c51e-e851-4cc5-96ca-bf543c61ae80/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d998c51e-e851-4cc5-96ca-bf543c61ae80/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d998c51e-e851-4cc5-96ca-bf543c61ae80/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d998c51e-e851-4cc5-96ca-bf543c61ae80/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_7_21_10_59_取消提交了更改_[更改]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/forms/login_form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/forms/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/item/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/views/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/second_hand_websites/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/second_hand_websites/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/layout/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/layout/basic.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views/login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,33 +35,30 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2SpmSHx72dtmgLoxlUooAJkPmro" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "正在合并 user",
-    "last_opened_file_path": "E:/code/Django/NkuFleaMarket/user/migrations",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;user&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/code/Django/NkuFleaMarket/user/migrations&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\Django\NkuFleaMarket\user\migrations" />
@@ -124,6 +104,7 @@
       <workItem from="1689856687730" duration="230000" />
       <workItem from="1689900878428" duration="6605000" />
       <workItem from="1689907524173" duration="84000" />
+      <workItem from="1689907742981" duration="2892000" />
     </task>
     <task id="LOCAL-00001" summary="（branch_user）编写basic母版，创建login网页">
       <option name="closed" value="true" />
