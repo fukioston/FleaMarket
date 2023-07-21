@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）编写basic母版，创建login网页">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/forms/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms/login_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/login.html" afterDir="false" />
+    <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）完成登录界面功能的编写">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views/login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,8 @@
       <workItem from="1689855982013" duration="407000" />
       <workItem from="1689856402970" duration="276000" />
       <workItem from="1689856687730" duration="230000" />
-      <workItem from="1689900878428" duration="6326000" />
+      <workItem from="1689900878428" duration="6605000" />
+      <workItem from="1689907524173" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="（branch_user）编写basic母版，创建login网页">
       <option name="closed" value="true" />
@@ -119,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689900931318</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="（branch_user）完成登录界面功能的编写">
+      <option name="closed" value="true" />
+      <created>1689907270325</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689907270325</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +142,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/user" />
                       </list>
                     </value>
                   </entry>
@@ -150,6 +156,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="（branch_user）编写basic母版，创建login网页" />
-    <option name="LAST_COMMIT_MESSAGE" value="（branch_user）编写basic母版，创建login网页" />
+    <MESSAGE value="（branch_user）完成登录界面功能的编写" />
+    <option name="LAST_COMMIT_MESSAGE" value="（branch_user）完成登录界面功能的编写" />
   </component>
 </project>

@@ -1,11 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 
-<<<<<<< HEAD
 from user.forms.login_form import LoginForm
-=======
 from user import models
->>>>>>> afa985a550d73070a98ab6f121685e06936c3a2b
 from user.forms.login_sms_form import LoginSmsForm
 from user.forms.send_sms_form import SendSmsForm
 from user.models import UserInfo
@@ -39,13 +36,9 @@ def send_sms(request):
 
 
 def login_sms(request):
-<<<<<<< HEAD
-    form = LoginSmsForm(request)
-    return render(request, 'user/login_sms.html', {'form': form})
-=======
     if request.method == 'GET':
         form = LoginSmsForm(request)
-        return render(request, 'user/login_sms.html',{'form':form})
+        return render(request, 'user/login_sms.html', {'form': form})
     else:
         form = LoginSmsForm(request, data=request.POST)
         if form.is_valid():
@@ -61,8 +54,5 @@ def login_sms(request):
         return render(request, 'user/login_sms.html', {'form': form})
 
 
-
-
 def index(request):
     return render(request, 'user/index.html')
->>>>>>> afa985a550d73070a98ab6f121685e06936c3a2b
