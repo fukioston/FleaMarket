@@ -25,5 +25,6 @@ urlpatterns = [
     path('login/sms/', login.login_sms),
     path('index/', login.index),
     path('home/', home.home),
-    path('register/',register.register)
+    path('register/',register.register),
+      path('image/code/',login.image_code,name='image_code'),
 ]

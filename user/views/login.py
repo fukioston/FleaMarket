@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from jsonschema.exceptions import ValidationError
@@ -7,6 +9,7 @@ from user.forms.login_sms_form import LoginSmsForm
 from user.forms.register_form import RegisterForm
 from user.forms.send_sms_form import SendSmsForm
 from user.models import UserInfo
+from utils.image_code import check_code
 
 
 def login(request):
@@ -57,20 +60,18 @@ def login_sms(request):
     except ValidationError as e:
         form.add_error('code', e)
     return render(request, 'user/login_sms.html', {'form': form})
-
+def image_code(request):
+    # 生成图片验证码
+    image_object, code = check_code()
+    request.session['image_code'] = code
+    request.session.set_expiry(60)  # 主动修改session的过期时间为60s
+    # 将图⽚信息保存到内存中使⽤省去每次都去数据库查询的操作
+    stream = BytesIO()
+    image_object.save(stream, 'png')
+    return HttpResponse(stream.getvalue())
 
 def index(request):
     return render(request, 'user/index.html')
 
 
-# def register(request):
-#     if request.method == 'GET':
-#         form = RegisterForm(request)
-#         return render(request, 'user/register.html', {'form': form})
-#     else:
-#         return render(request, 'user/register.html')
-#         # form = RegisterForm(request, data=request.POST)
-#         # if form.is_valid():
-#         #     form.save()
-#         #     return redirect('user/login/sms/')
-#         # return JsonResponse({'status': False, 'error': form.errors})
+
