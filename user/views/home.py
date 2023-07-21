@@ -56,9 +56,14 @@ def edit_info(request):
 def edit_pwd(request):
     info = request.session.get('info')
     user_id = info['id']
+    print(user_id)
+    query_set = UserInfo.objects.filter(id=user_id).first()
+    print(query_set)
     if request.method == 'GET':
+        user_info = UserInfo.objects.filter(id=user_id).values_list('username', 'email', 'mobile_phone').first()
+
         form = PwdForm(request)
-        return render(request, 'user/edit_pwd.html', {'form': form})
+        return render(request, 'user/edit_pwd.html', {'form': form,'user_info':query_set})
 
     form = PwdForm(request, data=request.POST)
     user = UserInfo.objects.filter(id=user_id).first()
