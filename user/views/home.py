@@ -24,6 +24,10 @@ def on_sales(request):
     return render(request, 'user/on_sales.html', {'on_sales': on_sales, 'user_info': query_set})
 
 
+def logout(request):
+    request.session.flush()
+    return redirect('/user/login/sms/')
+
 def edit_info(request):
     info = request.session.get('info')
     user_id = info['id']

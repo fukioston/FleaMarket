@@ -54,8 +54,16 @@
                     </div>
             {% endif %}
         {% endfor %}
-
-        <input type="submit" value="登 录" class="btn btn-primary">
+<div>
+            <div style="float:right">
+                <a href="{% url 'login' %}">密码登陆</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <input id="btnSubmit" type="submit" class="btn btn-primary" value="登录"/>
+            </div>
+        </div>
     </form>
 </div>
 {% endblock %}
