@@ -16,9 +16,10 @@ Including another URLconf
 
 from django.urls import path
 from user.views import login
+
 urlpatterns = [
     path('login/', login.login),
-    path('sms/code/',login.send_sms),
-    path('login/sms/',login.login_sms)
+    path('sms/code/', login.send_sms),
+    path('login/sms/', login.login_sms)
 
 ]
