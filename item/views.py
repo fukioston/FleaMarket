@@ -20,7 +20,9 @@ def show_home(request):
                 i = i + 1
         for r in ran:
             finlist.append(list[int(r)])
-    return render(request, 'layout/home.html', {'items_list': finlist})
+    #检测当前页面是不是商城，是就不显示商城标签，将url传入item网页
+    current_url = request.path
+    return render(request, 'layout/home.html', {'items_list': finlist, 'current_url': current_url})
 
 
 def show_details(request, gid):

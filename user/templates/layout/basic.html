@@ -29,7 +29,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">商城</a></li>
+                {% if not current_url == '/item/' %}
+                    <li><a href="/item/">商城</a></li>
+                {% endif %}
                 <li><a href="#">未开发</a></li>
                 <li><a href="#">未开发</a></li>
 
