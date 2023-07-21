@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e78c35c1-8c5d-4a54-bf4b-cfcde44dffdd" name="更改" comment="（branch_user）完成登录界面功能的编写">
-      <change afterPath="$PROJECT_DIR$/user/templates/user/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/views/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NkuFleaMarket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NkuFleaMarket.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/second_hand_websites/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/second_hand_websites/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/layout/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/layout/basic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms/login_sms_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms/login_sms_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/login_sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/login_sms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views/login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2SpmSHx72dtmgLoxlUooAJkPmro" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -104,7 +109,8 @@
       <workItem from="1689856687730" duration="230000" />
       <workItem from="1689900878428" duration="6605000" />
       <workItem from="1689907524173" duration="84000" />
-      <workItem from="1689907742981" duration="2892000" />
+      <workItem from="1689909530737" duration="2440000" />
+      <workItem from="1689914099032" duration="2712000" />
     </task>
     <task id="LOCAL-00001" summary="（branch_user）编写basic母版，创建login网页">
       <option name="closed" value="true" />

@@ -1,10 +1,8 @@
 {% extends 'layout/basic.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% block title %}
+    用户登录
+{% endblock %}
 
     {% block css %}
     <style>
@@ -36,16 +34,6 @@
     <h2>用户登录</h2>
     <form method="post" novalidate>
         {% csrf_token %}
-{#        <div class="form-group">#}
-{#            <label>用户名</label>#}
-{#            {{ form.username }}#}
-{#            <span style="color: red;">{{ form.username.errors.0 }}</span>#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            <label>密码</label>#}
-{#            {{ form.password }}#}
-{#            <span style="color: red;">{{ form.password.errors.0 }}</span>#}
-{#        </div>#}
         {% for field in form %}
             {% if field.name == 'code' %}
                     <div class="form-group">

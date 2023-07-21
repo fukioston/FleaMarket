@@ -24,16 +24,17 @@ class LoginSmsForm(BootStrap, forms.Form):
         self.request = request
 
     #     未进行检验
-    def clean_mobile_phone(self):
-        mobile_phone = self.cleaned_data['mobile_phone']
-        exists = models.UserInfo.objects.filter(mobile_phone=mobile_phone).exists()
-        print("??succeed")
-        if not exists:
-            raise ValidationError('⼿机号不存在')
-        return mobile_phone
-
+    # def clean_mobile_phone(self):
+    #     mobile_phone = self.cleaned_data['mobile_phone']
+    #     exists = models.UserInfo.objects.filter(mobile_phone=mobile_phone).exists()
+    #
+    #     if not exists:
+    #         raise ValidationError('⼿机号不存在')
+    #     return mobile_phone
+    # #
     def clean_code(self):
         code = self.cleaned_data['code']
+        print(code)
         mobile_phone = self.cleaned_data.get('mobile_phone')
         # ⼿机号不存在，则验证码⽆需再校验
         if not mobile_phone:
@@ -42,6 +43,6 @@ class LoginSmsForm(BootStrap, forms.Form):
         if not session_code:
             raise ValidationError('验证码失效或未发送，请重新发送')
         # redis_str_code = redis_code.decode('utf-8')
-        if code != session_code:
+        if code.strip().upper() != session_code.strip().upper():
             raise ValidationError('验证码错误，请重新输⼊')
         return code
