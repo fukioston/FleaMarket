@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,15 +81,15 @@
                        aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">管理中心</a></li>
-                        <li><a href="{% url 'logout' %}">退出</a></li>
+                        <li><a href="">退出</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                     </ul>
                 </li>
                     {% else %}
-                    <li><a href="{% url 'login' %}">登录</a></li>
-                   <li><a href="{% url 'register' %}">注册</a></li>
+                    <li><a href="">登录</a></li>
+                   <li><a href="">注册</a></li>
                 {% endif %}
 
 
@@ -108,16 +109,16 @@
 <div id="b1" class="media">
   <div class="media-left">
     <a href="#">
-      <img class="media-object" src="../../../static/pic/5f4ed6422a9c3669.jpg.avif" alt="..." width="450px" height="600px" >
+      <img class="media-object" src="{{ item_detail.img_index }}" alt="..." width="450px" height="600px" >
     </a>
   </div>
   <div class="media-body">
     <div class="spaces">
 
     </div>
-    <h4 class="media-heading" ><font size="5">莫林（MONIN） 香草风味糖浆 玻璃瓶装 250ml 咖啡伴侣鸡尾酒调酒奶茶果汁饮料浓缩糖浆 香草风味 250ml</font>……</h4><br/><br/><br/>
-    <h4 class="media-heading" ><font size="4">说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍说明介绍</font>……</h4><br/><br/><br/>
-    <h4 class="media-heading" ><font size="4">卖家信息：</font>……</h4>
+    <h4 class="media-heading" ><font size="5">{{ item_detail.gname }}</font>……</h4><br/><br/><br/>
+    <h4 class="media-heading" ><font size="4">{{ item_detail.intro_txt }}</font>……</h4><br/><br/><br/>
+    <h4 class="media-heading" ><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
     <p id="p"><a href="#" class="btn btn-primary" role="button">收藏</a></p>
     <div class="spaces">
 

@@ -25,6 +25,7 @@
             width: 900px;
             margin: 0 auto;
         }
+
         .ellipsis {
             display: -webkit-box;
             -webkit-line-clamp: 2; /* 显示2行文本 */
@@ -105,15 +106,17 @@
     {% for item in items_list %}
         <div class="col-sm-4 col-md-3">
             <div class="thumbnail">
-                <img src="{{item.img_index}}" alt="..." width="300px" height="400px">
-                <div class="caption">
-                    <h3>
-                        ￥
-                        {{ item.price }}
-                    </h3>
-                    <p class="ellipsis">{{ item.gname }}</p>
-                    <p ><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-                </div>
+                <a href="/item/details/{{ item.id }} ">
+                    <img src="{{ item.img_index }}" alt="..." width="300px" height="400px">
+                    <div class="caption">
+                        <h3>
+                            ￥
+                            {{ item.price }}
+                        </h3>
+                        <p class="ellipsis">{{ item.gname }}</p>
+                        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+                    </div>
+                </a>
             </div>
         </div>
     {% endfor %}
