@@ -26,7 +26,7 @@ def login(request):
                 # 登录成功，将用户标识存储在session中
                 request.session["info"] = {'id': user.id, 'name': user.username}
                 request.session.set_expiry(60 * 60 * 24 * 14)
-                return redirect('../home/')  # 重定向到登录成功后的页面
+                return redirect('/item/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
     except ValidationError as e:

@@ -28,11 +28,14 @@ def show_home(request):
 
     # 获取当前session的用户是谁，如果有，右上角可以显示用户名
     info = request.session.get('info')
-    user_id = info['id']
-    query_set = UserInfo.objects.filter(id=user_id).first()
+    if info:
+        user_id = info['id']
+        query_set = UserInfo.objects.filter(id=user_id).first()
 
+        return render(request, 'layout/home.html',
+                      {'items_list': finlist, 'current_url': current_url, 'user_info': query_set})
     return render(request, 'layout/home.html',
-                  {'items_list': finlist, 'current_url': current_url, 'user_info': query_set})
+                  {'items_list': finlist, 'current_url': current_url})
 
 
 def show_details(request, gid):

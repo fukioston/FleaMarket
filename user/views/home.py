@@ -27,7 +27,7 @@ def on_sales(request):
 
 def logout(request):
     request.session.flush()
-    return redirect('/user/login/sms/')
+    return redirect('/item/')
 
 def edit_info(request):
     info = request.session.get('info')

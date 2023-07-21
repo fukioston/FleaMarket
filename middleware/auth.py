@@ -14,7 +14,6 @@ class AuthMiddleware(MiddlewareMixin):
                                  '/user/login/sms/',
                                  '/user/index/',
                                  '/user/logout',
-
                                  ]:
             return
 
