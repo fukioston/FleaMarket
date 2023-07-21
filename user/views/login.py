@@ -25,6 +25,7 @@ def login(request):
             if user.password == password:
                 # 登录成功，将用户标识存储在session中
                 request.session["info"] = {'id': user.id, 'name': user.username}
+                request.session.set_expiry(60 * 60 * 24 * 14)
                 return redirect('../home/')  # 重定向到登录成功后的页面
             else:
                 form.add_error('password', '密码错误!')
@@ -55,7 +56,7 @@ def login_sms(request):
                 request.session['id'] = user_object.id
                 request.session['username'] = user_object.username
                 request.session.set_expiry(60 * 60 * 24 * 14)
-                return redirect('/user/index/')
+                return redirect('..//home/')
             form.add_error('mobile_phone', '手机号或验证码错误')
     except ValidationError as e:
         form.add_error('code', e)

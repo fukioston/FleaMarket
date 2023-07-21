@@ -19,14 +19,13 @@ from user.views import login, home, register
 
 urlpatterns = [
     path('login/', login.login, name="login"),
-    path('sms/code/', login.send_sms),
-    path('login/sms/', login.login_sms),
-    path('sms/code/', login.send_sms),
-    path('login/sms/', login.login_sms),
-    path('index/', login.index),
-    path('home/', home.home),
-    path('register/',register.register),
+    path('sms/code/', login.send_sms,name="send_sms"),
+    path('login/sms/', login.login_sms,name="login_sms"),
+    path('index/', login.index,name="index"),
+    path('home/', home.home,name="home"),
+    path('register/',register.register,name="register"),
       path('image/code/',login.image_code,name='image_code'),
-     path('on_sales/',home.on_sales)
+     path('on_sales/',home.on_sales,name="on_sales"),
+    path('logout/',home.logout,name="logout")
 ]
 
