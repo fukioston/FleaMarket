@@ -12,28 +12,36 @@
             margin: 0 auto;
             padding: 0 10%;
         }
-        .space{
+
+        .space {
             height: 150px;
         }
-        .spaces{
+
+        .spaces {
             height: 50px;
         }
+
         img {
             border: 5px solid #b2bbbe;
         }
-        .media-body{
+
+        .media-body {
             width: 95%;
             margin: 0 auto;
             padding: 0 5%;
-            background-color: rgba(235,232,217,0.51);
+            background-color: rgba(235, 232, 217, 0.51);
         }
-        #p{
-            position: absolute; bottom: -75px;
+
+        #p {
+            position: absolute;
+            bottom: -75px;
         }
-        #search{
+
+        #search {
             height: 150px;
         }
-        .input-group{
+
+        .input-group {
             width: 900px;
             margin: 0 auto;
         }
@@ -77,21 +85,20 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user_obj %}
                     <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">管理中心</a></li>
-                        <li><a href="">退出</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-                    {% else %}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{ request.user_obj.name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">管理中心</a></li>
+                            <li><a href="">退出</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                {% else %}
                     <li><a href="">登录</a></li>
-                   <li><a href="">注册</a></li>
+                    <li><a href="">注册</a></li>
                 {% endif %}
-
 
 
             </ul>
@@ -102,28 +109,29 @@
 
 </div>
 <div id="search">
-  <div class="input-group">
-    <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
-  </div>
+    <div class="input-group">
+        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+    </div>
 </div>
 <div id="b1" class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px" height="600px" >
-    </a>
-  </div>
-  <div class="media-body">
-    <div class="spaces">
-
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px"
+                 height="600px">
+        </a>
     </div>
-    <h4 class="media-heading" ><font size="5">{{ item_detail.gname }}</font>……</h4><br/><br/><br/>
-    <h4 class="media-heading" ><font size="4">{{ item_detail.intro_txt }}</font>……</h4><br/><br/><br/>
-    <h4 class="media-heading" ><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
-    <p id="p"><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-    <div class="spaces">
+    <div class="media-body">
+        <div class="spaces">
 
+        </div>
+        <h4 class="media-heading"><font size="5">{{ item_detail.gname }}</font>……</h4><br/><br/><br/>
+        <h4 class="media-heading"><font size="4">{{ item_detail.intro_txt }}</font>……</h4><br/><br/><br/>
+        <h4 class="media-heading"><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
+        <p id="p"><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+        <div class="spaces">
+
+        </div>
     </div>
-  </div>
 </div>
 <div class="space">
 

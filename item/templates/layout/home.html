@@ -4,71 +4,72 @@
 
 {% block content %}
     <head>
-    <title>Home</title>
+        <title>Home</title>
 
-    <style type="text/css">
-        a:hover{
-            text-decoration: none;
-        }
-        .row {
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 10%;
-        }
+        <style type="text/css">
+            a:hover {
+                text-decoration: none;
+            }
 
-        .space {
-            height: 150px;
-        }
+            .row {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 10%;
+            }
 
-        #search {
-            height: 150px;
-        }
+            .space {
+                height: 150px;
+            }
 
-        .input-group {
-            width: 900px;
-            margin: 0 auto;
-        }
+            #search {
+                height: 150px;
+            }
 
-        .ellipsis {
-            display: -webkit-box;
-            -webkit-line-clamp: 2; /* 显示2行文本 */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis; /* 文本溢出时显示省略号 */
-        }
-    </style>
-</head>
-<body>
-<div class="space">
+            .input-group {
+                width: 900px;
+                margin: 0 auto;
+            }
 
-</div>
-<div id="search">
-    <div class="input-group">
-        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+            .ellipsis {
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* 显示2行文本 */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+            }
+        </style>
+    </head>
+    <body>
+    <div class="space">
+
     </div>
-</div>
-
-<div class="row">
-    {% for item in items_list %}
-        <div class="col-sm-4 col-md-3">
-            <div class="thumbnail">
-                <a href="/item/details/{{ item.id }} ">
-                    <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
-                    <div class="caption">
-                        <h3>
-                            ￥
-                            {{ item.price }}
-                        </h3>
-                        <p class="ellipsis">{{ item.gname }}</p>
-                        <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-                    </div>
-                </a>
-            </div>
+    <div id="search">
+        <div class="input-group">
+            <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
         </div>
-    {% endfor %}
+    </div>
 
-</div>
-<div class="space">
-</div>
+    <div class="row">
+        {% for item in items_list %}
+            <div class="col-sm-4 col-md-3">
+                <div class="thumbnail">
+                    <a href="/item/details/{{ item.id }} ">
+                        <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                        <div class="caption">
+                            <h3>
+                                ￥
+                                {{ item.price }}
+                            </h3>
+                            <p class="ellipsis">{{ item.gname }}</p>
+                            <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+    <div class="space">
+    </div>
 
 {% endblock %}
