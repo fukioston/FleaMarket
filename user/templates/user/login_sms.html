@@ -4,33 +4,38 @@
 <head>
    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
     <style>
-                .glass-container{
+         .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .error-msg{
+            color:red;
+            height:9px;
+            font-size: 13px;
+        }
+        .glass-container{
             width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(2px);
-            background-color: rgba(0,191,255, 0.075);
+            border-radius: 0;
+            backdrop-filter: blur(0px);
+            background-color: rgba(0,191,255, 0);
             box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
-            border: 2px rgba(255,255,255,0.4) solid;
-            border-bottom: 2px rgba(40,40,40,0.35) solid;
-            border-right: 2px rgba(40,40,40,0.35) solid;
+            border: 0 rgba(255,255,255,0.4) solid;
+            border-bottom: 0 rgba(40,40,40,0.35) solid;
+            border-right: 0 rgba(40,40,40,0.35) solid;
 
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
-            color: darkblue;
-        }
-
-      .error-msg{
-            color:red;
-            height:7px;
+            color: black;
+            font-size: 1.5em;
         }
         body{
-            background-image: url("{% static "images/bg_login.jpg" %}");
+            background-image: url("{% static "images/bg_login1.jpg" %}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -38,22 +43,17 @@
             margin: 0;
             padding: 0;
         }
-
-        .account h2 {
-            margin-top: 10px;
-            text-align: center;
+        a{
+            color: white;
+            font-size: 0.9em;
         }
-        .error-msg{
-            color: red;
-        }
-
         h2{
             text-align: center;
         }
         .btn {
 	        background: white;
             color: black;
-            width: 9em;
+            width: 8em;
         }
 
         .btn:hover{
@@ -102,7 +102,7 @@
                         <div class="clearfix">
                             <div class="col-md-6" style="padding-left: 0;">{{ field }}<div class="error-msg">{{ field.errors.0 }}</div></div>
                             <div class="col-md-6"><input type="button" id="btnSms" class="btn btn-default"
-                                                         value="点击获取验证码">
+                                                         value="获取验证码">
                             </div>
                         </div>
                     </div>
