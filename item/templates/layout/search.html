@@ -12,6 +12,22 @@
             padding: 0 10%;
         }
 
+        body {
+            margin: 0;
+            background: url("../../../static/images/background_user.png") repeat;
+        }
+
+        #back {
+            background-image: url("{% static 'icon/333.png' %}");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #f {
+            position: absolute;
+            left: 200px;
+            color: white;
+        }
 
         #search {
             height: 100px;
@@ -65,36 +81,37 @@
         <title>Home</title>
     </head>
     <body>
-    <div class="space">
-        <img class="logo" src="{% static 'images/ff49b6c5e00bfa654c50cf15115455c.jpg' %}" alt="">
-    </div>
-
-    </div>
-
-    <div class="row">
-        {% for item in items_list %}
-            <div class="col-sm-4 col-md-3 item">
-                <div class="thumbnail">
-                    <a href="/item/details/{{ item.id }} ">
-                        <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
-                        <div class="caption">
-                            <h3>
-                                ￥
-                                {{ item.price }}
-                            </h3>
-                            <p class="ellipsis">{{ item.gname }}</p>
-                            <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary"
-                                  role="button">查看商品</a></p>
-                        </div>
-                    </a>
+    <div id="back">
+        <div class="space">
+        </div>
+        <div id="f">
+            <h1 ><font size="8">"{{ kw }}"</font></h1>
+        </div>
+        <div id="search"></div>
+        <div class="row">
+            {% for item in items_list %}
+                <div class="col-sm-4 col-md-3 item">
+                    <div class="thumbnail">
+                        <a href="/item/details/{{ item.id }} ">
+                            <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                            <div class="caption">
+                                <h3>
+                                    ￥
+                                    {{ item.price }}
+                                </h3>
+                                <p class="ellipsis">{{ item.gname }}</p>
+                                <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary"
+                                      role="button">查看商品</a></p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+
+        </div>
+        <div class="space">
+        </div>
 
     </div>
-    <div class="space">
-    </div>
-
-
-
+    </body>
 {% endblock %}

@@ -12,14 +12,14 @@
             }
 
             .space {
-                height: 150px;
+                height: 75px;
             }
 
             .spaces {
-                height: 50px;
+                height: 100px;
             }
 
-            img {
+            #img {
                 border: 5px solid #b2bbbe;
             }
 
@@ -51,13 +51,11 @@
         </style>
     </head>
     <body>
-
-
-    </div>
+    <div class="space"></div>
     <div id="b1" class="media">
         <div class="media-left">
             <a href="#">
-                <img class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px"
+                <img id="img" class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px"
                      height="600px">
             </a>
         </div>

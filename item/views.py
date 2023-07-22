@@ -24,7 +24,7 @@ def show_home(request):
         goods = Items.objects.filter(gname__contains=kw)
         if goods:
             print('has goods')
-            return render(request, 'layout/search.html', {'items_list': goods})
+            return render(request, 'layout/search.html', {'items_list': goods,'kw': kw})
         form.add_error('search_field', '搜索物品不存在')
 
     list = Items.objects.all()
