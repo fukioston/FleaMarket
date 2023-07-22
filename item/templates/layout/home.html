@@ -23,6 +23,7 @@
         }
 
         .ellipsis {
+            height: 42.5px;
             display: -webkit-box;
             -webkit-line-clamp: 2; /* 显示2行文本 */
             -webkit-box-orient: vertical;
@@ -48,11 +49,9 @@
             margin: 20px;
             padding: 0 10%;
 
-
         }
 
         .logo {
-
 
             width: 1305px;
         }
@@ -75,6 +74,7 @@
             <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
         </div>
     </div>
+
     <div style="height: 50px">
 
     </div>
@@ -91,7 +91,8 @@
                                 {{ item.price }}
                             </h3>
                             <p class="ellipsis">{{ item.gname }}</p>
-                            <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary" role="button">查看商品</a></p>
+                            <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary"
+                                  role="button">查看商品</a></p>
                         </div>
                     </a>
                 </div>
