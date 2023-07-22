@@ -19,8 +19,6 @@ def show_home(request):
     if request.method == 'POST':
         form = SearchForm(request, data=request.POST)
         kw = form['search_field'].value()
-        if kw == '陈高楠的鸡巴':
-            return HttpResponse('他没有鸡巴，你搜不到！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！')
         goods = Items.objects.filter(gname__contains=kw)
         if goods:
             print('has goods')
