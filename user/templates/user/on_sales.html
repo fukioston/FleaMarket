@@ -8,7 +8,7 @@
             {% for item in on_sales %}
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top" alt="货品图片1">
+                    <img  src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top" alt="货品图片1" width="100px">
                     <div class="card-body">
                         <h5 class="card-title">商品名称: {{ item.gname }}</h5>
                         <p class="card-text">商品描述: {{ item.intro_txt }}</p>
