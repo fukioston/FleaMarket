@@ -71,8 +71,7 @@ def image_code(request):
     image_object.save(stream, 'png')
     return HttpResponse(stream.getvalue())
 
-def index(request):
-    return render(request, 'user/index.html')
+
 
 
 
