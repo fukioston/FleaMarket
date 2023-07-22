@@ -102,6 +102,7 @@
                     </div>
             {% endif %}
         {% endfor %}
+
 <div style="float:right">
                 <a href="{% url 'login_sms' %}">短信登录</a>
                 <a href="{% url 'login' %}">密码登录</a>
@@ -119,7 +120,6 @@
     <script>
     btnSms_click()
     btnSubmit_click()
-
 
 
       function btnSms_click(){

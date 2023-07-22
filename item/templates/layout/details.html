@@ -69,7 +69,7 @@
             <h4 class="media-heading"><font size="4">{{ item_detail.intro_txt }}</font></h4><br/><br/><br/>
             <h4 class="media-heading"><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
             <p id="p">
-                <button id="btnFavorite" class="btn btn-primary" role="button">收藏</button>
+                <button id="btnFavorite" data-id=0 class="btn btn-primary" role="button">收藏</button>
             </p>
             <div class="spaces">
 
@@ -82,43 +82,92 @@
 {% endblock %}
 {% block js %}
     <script>
-        console.log('dianji')
+    var item_id = {{ item_detail.id }};
+     var user_id = {{ user_info.id }};
+    {#  $('#btnFavorite').data('id', 1)#}
+    {##}
+    {#console.log($('#btnFavorite').data('id'))#}
+        yesornot()
 
         btnFavorite_click()
-        console.log('dianji')
-
-        function btnFavorite_click() {
-            $('#btnFavorite').click(function () {
-                    $('.error-msg').empty();
-                    {#获取userid、itemid#}
-                    var buttonText = $(this).text();
-                    if (buttonText === '收藏') {
-
-                        var item_id = {{ item_detail.id }};
-                        var user_id = {{ user_info.id }};
-                        console.log(item_id);
-                        console.log(user_id);
-                        $.ajax({
+       function yesornot(){
+            $.ajax({
                             {#请求的路由地址#}
-                            url: "/item/click_favorite/",
+                            url: "/item/isfavorite/",
                             type: "GET",
                             data: {
+
                                 item_id: item_id,
                                 user_id: user_id,
                             },
                             dataType: "JSON",
                             success: function (res) {
                                 if (res.status) {
-                                    $('#btnFavorite').text('取消收藏')
-                                } else {
-                                    // 错误信息
-                                    console.log(res.err);
-                                    // {status:False, error:{ mobile_phone: ["错误信息"，],code: ["错误信息"，] } }
+                                    console.log(res)
+                                    $('#btnFavorite').data('id', 1)
+                                    $('#btnFavorite').text('已经收藏')
 
+                                }
+                                else{
+                                    console.log(res)
+                                    $('#btnFavorite').data('id', 0)
+                                    $('#btnFavorite').text('收藏')
+                                }
+
+                            }
+
+                        })
+                    }
+
+
+
+
+        function btnFavorite_click() {
+            $('#btnFavorite').click(function () {
+                console.log($(this).data('id'))
+                    dataid=$(this).data('id')
+                    {#获取userid、itemid#}
+                    if (dataid===0) {
+                        $.ajax({
+                            {#请求的路由地址#}
+                            url: "/item/click_favorite/",
+                            type: "GET",
+                            data: {
+
+                                item_id: item_id,
+                                user_id: user_id,
+                            },
+                            dataType: "JSON",
+                            success: function (res) {
+                                if (res.status) {
+                                    $(this).data('id', 1)
+                                    yesornot()
                                 }
                             }
 
                         })
+                    }
+                    else{
+                              $.ajax({
+                            {#请求的路由地址#}
+                            url: "/item/cancel_favorite/",
+                            type: "GET",
+                            data: {
+
+                                item_id: item_id,
+                                user_id: user_id,
+                            },
+                            dataType: "JSON",
+                            success: function (res) {
+                                if (res.status) {
+                                    $(this).data('id', 0)
+                                    yesornot()
+                                }
+                            }
+
+                        })
+
+
                     }
 
                 }

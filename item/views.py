@@ -121,3 +121,28 @@ def change_favorite(request):
         UserFavorite.objects.create(userid=user_id, itemid=item_id)
         # 如果表中没有数据
         return JsonResponse({'status': True})
+
+
+
+
+
+def cancel_favorite(request):
+    item_id = request.GET.get('item_id')
+    user_id = request.GET.get('user_id')
+    if UserFavorite.objects.get(userid=user_id, itemid=item_id):
+        UserFavorite.objects.get(userid=user_id, itemid=item_id).delete()
+        return JsonResponse({'status': True, 'err': "已经取消收藏"})
+
+
+def isfavorite(request):
+    item_id = request.GET.get('item_id')
+    user_id = request.GET.get('user_id')
+
+    # 如果表中有了数据就报错
+    try:
+        if UserFavorite.objects.get(userid=user_id, itemid=item_id):
+            return JsonResponse({'status': True, 'err': "已经收藏"})
+    except UserFavorite.DoesNotExist:
+        # 如果表中没有数据
+        print('cao')
+        return JsonResponse({'status': False})
