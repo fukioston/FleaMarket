@@ -3,73 +3,128 @@
 {% block content %}
     <head>
 
-    <title>Details</title>
-    <style type="text/css">
-        #b1 {
-            width: 95%;
-            margin: 0 auto;
-            padding: 0 10%;
-        }
-        .space{
-            height: 150px;
-        }
-        .spaces{
-            height: 50px;
-        }
-        img {
-            border: 5px solid #b2bbbe;
-        }
-        .media-body{
-            width: 95%;
-            margin: 0 auto;
-            padding: 0 5%;
-            background-color: rgba(235,232,217,0.51);
-        }
-        #p{
-            position: absolute; bottom: -75px;
-        }
-        #search{
-            height: 150px;
-        }
-        .input-group{
-            width: 900px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
+        <title>Details</title>
+        <style type="text/css">
+            #b1 {
+                width: 95%;
+                margin: 0 auto;
+                padding: 0 10%;
+            }
+
+            .space {
+                height: 150px;
+            }
+
+            .spaces {
+                height: 50px;
+            }
+
+            img {
+                border: 5px solid #b2bbbe;
+            }
+
+            .media-body {
+                width: 95%;
+                margin: 0 auto;
+                padding: 0 5%;
+                background-color: rgba(235, 232, 217, 0.51);
+            }
+
+            #p {
+                position: absolute;
+                bottom: -75px;
+            }
+
+            #search {
+                height: 150px;
+            }
+
+            .input-group {
+                width: 900px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
 
 
-</div>
-<div id="search">
-    <div class="input-group">
-        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
     </div>
-</div>
-<div id="b1" class="media">
-    <div class="media-left">
-        <a href="#">
-            <img class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px"
-                 height="600px">
-        </a>
-    </div>
-    <div class="media-body">
-        <div class="spaces">
-
-        </div>
-        <h4 class="media-heading"><font size="5">{{ item_detail.gname }}</font></h4><br/><br/><br/>
-        <h4 class="media-heading"><font size="4">{{ item_detail.intro_txt }}</font></h4><br/><br/><br/>
-        <h4 class="media-heading"><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
-        <p id="p"><a href="#" class="btn btn-primary" role="button">收藏</a></p>
-        <div class="spaces">
-
+    <div id="search">
+        <div class="input-group">
+            <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
         </div>
     </div>
-</div>
-<div class="space">
+    <div id="b1" class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="/static/images/{{ item_detail.img_index }}" alt="..." width="450px"
+                     height="600px">
+            </a>
+        </div>
+        <div class="media-body">
+            <div class="spaces">
 
-</div>
+            </div>
+            <h4 class="media-heading"><font size="5">{{ item_detail.gname }}</font></h4><br/><br/><br/>
+            <h4 class="media-heading"><font size="4">{{ item_detail.intro_txt }}</font></h4><br/><br/><br/>
+            <h4 class="media-heading"><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
+            <p id="p">
+                <button id="btnFavorite" class="btn btn-primary" role="button">收藏</button>
+            </p>
+            <div class="spaces">
+
+            </div>
+        </div>
+    </div>
+    <div class="space">
+
+    </div>
 {% endblock %}
+{% block js %}
+    <script>
+        console.log('dianji')
 
+        btnFavorite_click()
+        console.log('dianji')
+
+        function btnFavorite_click() {
+            $('#btnFavorite').click(function () {
+                    $('.error-msg').empty();
+                    {#获取userid、itemid#}
+                    var buttonText = $(this).text();
+                    if (buttonText === '收藏') {
+
+                        var item_id = {{ item_detail.id }};
+                        var user_id = {{ user_info.id }};
+                        console.log(item_id);
+                        console.log(user_id);
+                        $.ajax({
+                            {#请求的路由地址#}
+                            url: "/item/click_favorite/",
+                            type: "GET",
+                            data: {
+                                item_id: item_id,
+                                user_id: user_id,
+                            },
+                            dataType: "JSON",
+                            success: function (res) {
+                                if (res.status) {
+                                    $('#btnFavorite').text('取消收藏')
+                                } else {
+                                    // 错误信息
+                                    console.log(res.err);
+                                    // {status:False, error:{ mobile_phone: ["错误信息"，],code: ["错误信息"，] } }
+
+                                }
+                            }
+
+                        })
+                    }
+
+                }
+            )
+        }
+    </script>
+{% endblock %}
 </body>
 </html>

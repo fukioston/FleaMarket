@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+
 from item import templates
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
@@ -101,3 +103,19 @@ def show_favorite(request):
             favorite_list.append(favorite_item)
         return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
+
+
+def change_favorite(request):
+    item_id = request.GET.get('item_id')
+    user_id = request.GET.get('user_id')
+    print(item_id)
+    print(user_id)
+
+    # 如果表中有了数据就报错
+    try:
+        if UserFavorite.objects.get(userid=user_id, itemid=item_id):
+            return JsonResponse({'status': False, 'err': "已经收藏"})
+    except UserFavorite.DoesNotExist:
+        UserFavorite.objects.create(userid=user_id, itemid=item_id)
+        # 如果表中没有数据
+        return JsonResponse({'status': True})

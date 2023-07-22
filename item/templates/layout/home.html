@@ -1,16 +1,16 @@
 {% extends 'layout/basic.html' %}
 {% load static %}
- {% block css %}
-<style type="text/css">
-        a:hover{
+{% block css %}
+    <style type="text/css">
+        a:hover {
             text-decoration: none;
         }
+
         .row {
             width: 100%;
             margin: 0 auto;
             padding: 0 10%;
         }
-
 
 
         #search {
@@ -29,43 +29,52 @@
             overflow: hidden;
             text-overflow: ellipsis; /* 文本溢出时显示省略号 */
         }
-        .item:hover{
+
+        .item:hover {
             border: 1px solid #f1960c;
             transform: scale(1.01);
         }
-        .item{
+
+        .item {
             margin-bottom: 20px;
 
         }
-        .space{
+
+        .space {
             display: flex;
             text-align: center;
-            width:100%;
-            height:280px;
+            width: 100%;
+            height: 280px;
             margin: 20px;
             padding: 0 10%;
 
 
         }
-        .logo{
+
+        .logo {
 
 
-            width:1305px;
+            width: 1305px;
         }
 
     </style>
-    {% endblock %}
+{% endblock %}
 
 
 {% block content %}
     <head>
-    <title>Home</title>
-</head>
-<body>
-<div class="space">
-    <img class="logo" src="{% static 'images/ff49b6c5e00bfa654c50cf15115455c.jpg' %}" alt="">
-</div>
+        <title>Home</title>
+    </head>
+    <body>
+    <div class="space">
+        <img class="logo" src="{% static 'images/ff49b6c5e00bfa654c50cf15115455c.jpg' %}" alt="">
+    </div>
 
+    <div id="search">
+        <div class="input-group">
+            <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
+        </div>
+    </div>
 <div id="search">
     <div class="input-group">
         <form method="post" novalidate>
@@ -88,7 +97,7 @@
                                 {{ item.price }}
                             </h3>
                             <p class="ellipsis">{{ item.gname }}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">收藏</a></p>
+                            <p><a href="#" id="btnFavorite" class="btn btn-primary" role="button">收藏</a></p>
                         </div>
                     </a>
                 </div>
@@ -98,5 +107,7 @@
     </div>
     <div class="space">
     </div>
+
+
 
 {% endblock %}
