@@ -5,6 +5,7 @@ from django.conf import settings
 from user.models import *
 from .models import *
 from random import *
+import os
 
 
 def show_home(request):
@@ -51,11 +52,39 @@ def show_details(request, gid):
 
 def show_submit(request):
     info = request.session.get('info')
-    if info:
+    if request.method == 'GET':
+        if info:
+            user_id = info['id']
+            query_set = UserInfo.objects.filter(id=user_id).first()
+            return render(request, 'layout/submit.html', {'user_info': query_set, })
+        return render(request, 'layout/submit.html', )
+    if request.POST.get('sub'):
+        print("hihi")
+        newgname = request.POST.get("newgname")
+        newprice = request.POST.get("newprice")
+        newintro = request.POST.get("newintro")
+        newuserid = 1
         user_id = info['id']
-        query_set = UserInfo.objects.filter(id=user_id).first()
-        return render(request, 'layout/submit.html', {'user_info': query_set, })
-    return render(request, 'layout/submit.html', )
+        # file = request.FILES.get('file')
+
+        # with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+        # for line in file.chunks():
+        # f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
+
+
+def submit(request):
+    print("hi")
+    if request.POST.get('sub'):
+        print("hihi")
+        newgname = request.POST.get("newgname")
+        newprice = request.POST.get("newprice")
+        newintro = request.POST.get("newintro")
+        newuserid = 1
+        # file = request.FILES.get('file')
+
+        # with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+        # for line in file.chunks():
+        # f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
 
 
 def show_favorite(request):
@@ -64,7 +93,7 @@ def show_favorite(request):
         user_id = info['id']
         query_set = UserInfo.objects.filter(id=user_id).first()
         favorite_item_list = UserFavorite.objects.filter(userid=user_id)
-        favorite_list=[]
+        favorite_list = []
 
         for item in favorite_item_list:
             item_id = item.itemid
@@ -72,4 +101,3 @@ def show_favorite(request):
             favorite_list.append(favorite_item)
         return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
-

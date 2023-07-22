@@ -18,19 +18,19 @@
                 height: 100px;
             }
 
-            .inp{
+            .inp {
                 width: 90%;
                 position: relative;
                 left: 100px;
             }
 
-            #bt{
+            #bt {
                 position: relative;
                 left: 100px;
             }
 
-            input[type=file]{
-                text-decoration:none;
+            input[type=file] {
+                text-decoration: none;
                 background-image: url("../../../static/icon/bottom.png");
             }
         </style>
@@ -48,25 +48,30 @@
         <br/><br/><br/><br/>
 
         <div class="inp">
-            <form>
+            <form method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1"><font size="4">商品名称：</font></label>
-                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="" name="newgname">
+                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder=""
+                           name="newgname">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">您想挂出的价格：</font></label>
-                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="¥" name="newprice">
+                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="¥"
+                           name="newprice">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">商品说明与介绍：</font></label>
-                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="" name="newintro">
+                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
+                           name="newintro">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">您希望进行联系的手机号码：</font></label>
-                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="" name="newphone">
+                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
+                           name="newphone">
                 </div>
                 <br/>
                 <div class="form-group ">
@@ -78,8 +83,10 @@
         </div>
 
         <div class="space"></div>
-        <button id="bt" type="button" class="btn btn-success btn-lg">提交</button>
-
+        <form method="post">
+            {% csrf_token %}
+            <input id="bt" type="submit" class="btn btn-success btn-lg" value="提交" name="sub"/>
+        </form>
         <div class="space"></div>
     </div>
     </body>
