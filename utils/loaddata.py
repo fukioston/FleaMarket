@@ -12,5 +12,5 @@ def load_model():
 
         for data in datas:
             Items.objects.create(gname=data['gname'], userid=data['userid'], price=data['price'],
-                                 intro_txt=data['intro_txt'], img_index=data['img_index'])
+                                 intro_txt=data['intro_txt'], img_index=data['img_index'], phone=data['phone'])
 
