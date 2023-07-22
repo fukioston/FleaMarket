@@ -13,7 +13,7 @@ class AuthMiddleware(MiddlewareMixin):
                                  '/user/sms/code/',
                                  '/user/login/sms/',
                                  '/user/index/',
-                                 '/user/logout/',
+                                 '/user/logout',
                                  ]:
             return
 
