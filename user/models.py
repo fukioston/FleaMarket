@@ -8,3 +8,7 @@ class UserInfo(models.Model):
     email = models.EmailField(verbose_name='邮箱', max_length=32)
     mobile_phone = models.CharField(verbose_name='手机号', max_length=32)
 
+
+class UserFavorite(models.Model):
+    userid = models.IntegerField(verbose_name="用户id")
+    itemid = models.IntegerField(verbose_name="商品id")

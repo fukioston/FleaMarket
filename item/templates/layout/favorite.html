@@ -2,3 +2,81 @@
 {% load static %}
 
 
+{% block content %}
+    <head>
+        <title>Favorite</title>
+
+        <style type="text/css">
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            .thumbnail .caption{
+                color:unset;
+            }
+            h1 {
+                margin-top: 100px;
+                text-align: center;
+            }
+
+            .row {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 10%;
+            }
+
+            .space {
+                height: 100px;
+            }
+
+
+            .ellipsis {
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* 显示2行文本 */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+            }
+
+            .item:hover {
+                border: 1px solid #f1960c;
+                transform: scale(1.01);
+            }
+
+            .item {
+                margin-bottom: 20px;
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>我的收藏</h1>
+
+
+    <div class="space">
+
+    </div>
+    <div class="row">
+        {% if favorite_list %}
+            {% for item in favorite_list %}
+                <div class="col-sm-4 col-md-3 item">
+                    <div class="thumbnail">
+                        <a href="/item/details/{{ item.id }} ">
+                            <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                            <div class="caption">
+                                <h3>
+                                    ￥
+                                    {{ item.price }}
+                                </h3>
+                                <p class="ellipsis">{{ item.gname }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    </body>
+{% endblock %}

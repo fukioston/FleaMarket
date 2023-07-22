@@ -2,7 +2,7 @@ from item import templates
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
 
-from user.models import UserInfo
+from user.models import *
 from .models import *
 from random import *
 
@@ -46,7 +46,7 @@ def show_details(request, gid):
         user_id = info['id']
         query_set = UserInfo.objects.filter(id=user_id).first()
         return render(request, 'layout/details.html', {'item_detail': item_detail, 'user_info': query_set})
-    return render(request, 'layout/details.html', {'item_detail': item_detail,})
+    return render(request, 'layout/details.html', {'item_detail': item_detail, })
 
 
 def show_submit(request):
@@ -55,7 +55,7 @@ def show_submit(request):
         user_id = info['id']
         query_set = UserInfo.objects.filter(id=user_id).first()
         return render(request, 'layout/submit.html', {'user_info': query_set, })
-    return render(request, 'layout/submit.html',)
+    return render(request, 'layout/submit.html', )
 
 
 def show_favorite(request):
@@ -63,5 +63,13 @@ def show_favorite(request):
     if info:
         user_id = info['id']
         query_set = UserInfo.objects.filter(id=user_id).first()
-        return render(request, 'layout/favorite.html',{'user_info': query_set,})
+        favorite_item_list = UserFavorite.objects.filter(userid=user_id)
+        favorite_list=[]
+
+        for item in favorite_item_list:
+            item_id = item.itemid
+            favorite_item = Items.objects.get(id=item_id)
+            favorite_list.append(favorite_item)
+        return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
+

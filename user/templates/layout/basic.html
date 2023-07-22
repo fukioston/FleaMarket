@@ -5,98 +5,96 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
-<style>
-    .modal{
-    display: none;
-      position: fixed;
-      z-index: 998;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.1);
-  }
-    .modal .container{
-      width: 404px;
-      height: 200px;
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 998;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
 
-      background-color: #fcd7d7;
+        .modal .container {
+            width: 404px;
+            height: 200px;
 
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      box-sizing: border-box;
-      padding: 1em;
+            background-color: #fcd7d7;
 
-      text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-sizing: border-box;
+            padding: 1em;
 
-      border-radius: 10px;
-      border-style: double;
-      {#color: #CF5A5A;#}
-      border-color: #ffffff;
-      border-width: 5px;
-    }
-      .modal .container .close{
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-        color: #ffffff;
-        border: 2px solid #fff;
-        cursor: pointer;
-        {#background-color: #CF5A5A;#}
-        text-align: center;
-        line-height: 30px;
-      }
-  .close a{
-    color:#ffffff;
-    text-decoration: none;
-  }
-      .modal .container .back {
+            text-align: center;
 
-        list-style-type: none;
-        margin-top: 60px;
-        margin-left: 50px;
-        margin-right: 50px;
-        padding: 0;
-        overflow: hidden;
+            border-radius: 10px;
+            border-style: double;
+        {#color: #CF5A5A;#} border-color: #ffffff;
+            border-width: 5px;
+        }
 
-      }
-      .button1 {
-        float: left;
-        padding: 10px 24px ;
-        font-size: 16px;
-        background-color: white;
-        {#color: #CF5A5A;#}
-        {#border: 2px solid #CF5A5A;#}
-        border-radius: 10px;
-      }
+        .modal .container .close {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            color: #ffffff;
+            border: 2px solid #fff;
+            cursor: pointer;
+        {#background-color: #CF5A5A;#} text-align: center;
+            line-height: 30px;
+        }
+
+        .close a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .modal .container .back {
+
+            list-style-type: none;
+            margin-top: 60px;
+            margin-left: 50px;
+            margin-right: 50px;
+            padding: 0;
+            overflow: hidden;
+
+        }
+
+        .button1 {
+            float: left;
+            padding: 10px 24px;
+            font-size: 16px;
+            background-color: white;
+        {#color: #CF5A5A;#}{#border: 2px solid #CF5A5A;#} border-radius: 10px;
+        }
 
         .button1:hover {
-          {#background-color: #CF5A5A;#}
-          color: white;
+        {#background-color: #CF5A5A;#} color: white;
         }
-      .button2 {
-        float: right;
-        padding:10px 24px;
-        font-size: 16px;
-        background-color: white;
-        {#color: #CF5A5A;#}
-        {#border: 2px solid #CF5A5A;#}
-        border-radius: 10px;
-      }
+
+        .button2 {
+            float: right;
+            padding: 10px 24px;
+            font-size: 16px;
+            background-color: white;
+        {#color: #CF5A5A;#}{#border: 2px solid #CF5A5A;#} border-radius: 10px;
+        }
 
         .button2:hover {
-          {#background-color: #CF5A5A;#}
-          color: white;
+        {#background-color: #CF5A5A;#} color: white;
         }
 
-</style>
+    </style>
     {% block css %}
 
     {% endblock %}
@@ -105,20 +103,21 @@
             border-radius: 0;
         }
     </style>
-<script type="text/javascript">
+    <script type="text/javascript">
 
-        function popDiv(){
+        function popDiv() {
             var popBox = document.getElementById("popup");
-            var popLayer =document.getElementById("poplayer");
-            popBox.style.display="block";
+            var popLayer = document.getElementById("poplayer");
+            popBox.style.display = "block";
             popLayer.style.display = "block";
         }
-        function closePop(){
-            let popDiv =document.getElementById("popup");
-            popDiv.style.display="none";
+
+        function closePop() {
+            let popDiv = document.getElementById("popup");
+            popDiv.style.display = "none";
 
         }
-        </script>
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -131,7 +130,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" > 二手交易平台 </a>
+            <a class="navbar-brand"> 二手交易平台 </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -140,49 +139,48 @@
                 {% endif %}
 
 
-
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not user_info %}
-                    <li><a href="{% url 'register'%} ">注册</a></li>
-                    <li><a href="{% url 'login'%} ">登录</a></li>
+                    <li><a href="{% url 'register' %} ">注册</a></li>
+                    <li><a href="{% url 'login' %} ">登录</a></li>
 
                 {% else %}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{user_info.username}}<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/user/home">个人资料</a></li>
-                        <li><a href="/user/edit_info">更改信息</a></li>
-                        <li><a href="/user/edit_pwd/">更改密码</a></li>
-                        <li><a href="/user/on_sales/">我的商品</a></li>
-                        <li><a href="/item/submit/">上传商品</a></li>
-                        <li><a href="/item/favorite/">我的收藏</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li id="poplayer" ><a  href="javascript:void(0)" onclick="popDiv();">退出登录</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{ user_info.username }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/home">个人资料</a></li>
+                            <li><a href="/user/edit_info">更改信息</a></li>
+                            <li><a href="/user/edit_pwd/">更改密码</a></li>
+                            <li><a href="/user/on_sales/">我的商品</a></li>
+                            <li><a href="/item/submit/">上传商品</a></li>
+                            <li><a href="/item/favorite/">我的收藏</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li id="poplayer"><a href="javascript:void(0)" onclick="popDiv();">退出登录</a></li>
 
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
 <div id="popup" class="modal"> <!-- 遮罩层 -->
-        <div class="container">
-            <p>
-            <h2>确认退出登录？</h2>
-            </p>
-            <div class="close">
-                <a href="javascript:void(0)" onclick="closePop();">X</a>
-            </div>
-            <div class="back">
-{#                <a href="{% url 'logout' %}">注销</a>#}
-                <button class="button1" ><a href="{% url 'logout' %}">确认</a></button>
-                <button class="button2" onclick="closePop();"><a >取消</a></button>
-            </div>
+    <div class="container">
+        <p>
+        <h2>确认退出登录？</h2>
+        </p>
+        <div class="close">
+            <a href="javascript:void(0)" onclick="closePop();">X</a>
+        </div>
+        <div class="back">
+            {#                <a href="{% url 'logout' %}">注销</a>#}
+            <button class="button1"><a href="{% url 'logout' %}">确认</a></button>
+            <button class="button2" onclick="closePop();"><a>取消</a></button>
         </div>
     </div>
+</div>
 {#"""#}
 {#-----------------这里是content的block喲---------------------------------------#}
 {#"""#}
@@ -195,6 +193,6 @@
 <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
 {% block js %}
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>
