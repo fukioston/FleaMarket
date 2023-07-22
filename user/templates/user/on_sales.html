@@ -3,7 +3,7 @@
 {% block content %}
     <style type="text/css">
         .thumbnail {
-        height: 500px;
+            height: 500px;
         }
 
         .caption {
@@ -27,6 +27,8 @@
                             <p class="card-text">价格: {{ item.price }}</p>
                             <p class="card-text">出售者: {{ user_info.username }}</p>
                             <p class="card-text">联系方式: {{ user_info.email }}</p>
+                            <button id="btnFavorite" class="btn btn-primary" role="button">
+                                <a href="/item/edit_details/{{ item.id }}">修改</a></button>
                         </div>
                     </div>
                 </div>
