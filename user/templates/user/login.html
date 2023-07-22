@@ -6,7 +6,6 @@
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
     <style>
-
         .account h2 {
             margin-top: 10px;
             text-align: center;
@@ -21,25 +20,23 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            background-color: rgba(0,191,255, 0.075);
+            border-radius: 0;
+            backdrop-filter: blur(0px);
+            background-color: rgba(0,191,255, 0);
             box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
-            border: 2px rgba(255,255,255,0.4) solid;
-            border-bottom: 2px rgba(40,40,40,0.35) solid;
-            border-right: 2px rgba(40,40,40,0.35) solid;
+            border: 0 rgba(255,255,255,0.4) solid;
+            border-bottom: 0 rgba(40,40,40,0.35) solid;
+            border-right: 0 rgba(40,40,40,0.35) solid;
 
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
             color: black;
-        }
-        h2, a{
-            color: white;
+            font-size: 1.5em;
         }
         body{
-            background-image: url("{% static "images/bg_login.jpg" %}");
+            background-image: url("{% static "images/bg_login1.jpg" %}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -47,7 +44,26 @@
             margin: 0;
             padding: 0;
         }
+        a{
+            color: white;
+            font-size: 0.9em;
+        }
+        h2{
+            text-align: center;
+        }
+        .btn {
+	        background: white;
+            color: black;
+            width: 8em;
+        }
 
+        .btn:hover{
+            background: black;
+            color: white;
+        }
+        a:hover{
+            color: #afd9ee;
+        }
     </style>
 </head>
 
@@ -74,15 +90,14 @@
 
 <body>
 <div class="glass-container" id="glass">
-    <h2>用户登录</h2>
     <form method="post" novalidate>
+    <h2>用户登录</h2>
         {% csrf_token %}
         {% for field in form %}
             <div class="form-group">
             {% if field.name == 'code' %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-
                         <div class="clearfix">
                             <div class="col-md-6" style="padding-left: 0;">{{ field }}<div class="error-msg">{{ field.errors.0 }}</div></div>
                             <div class="col-md-6">
@@ -91,9 +106,9 @@
                         </div>
                     </div>
                 {% else %}
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-                <div class="error-msg" style="color: red">{{ field.errors.0 }}</div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    <div class="error-msg" style="color: red">{{ field.errors.0 }}</div>
             </div>
             {% endif %}
         {% endfor %}
