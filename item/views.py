@@ -85,8 +85,8 @@ def show_favorite(request):
 
         for item in favorite_item_list:
             item_id = item.itemid
-            favorite_item = Items.objects.get(id=item_id)
-            favorite_list.append(favorite_item)
+            favorite_item = Items.objects.filter(id=item_id)
+            favorite_list.extend(favorite_item)
         return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
 
