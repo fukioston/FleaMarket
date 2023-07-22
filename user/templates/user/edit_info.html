@@ -1,34 +1,49 @@
 {% extends 'layout/basic.html' %}
 {% load static %}
+
+{% block css %}
+    <style>
+        img{
+            width: 200px;
+        }
+
+    </style>
+{% endblock %}
+
 {% block content %}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="text-center mb-3">
-                    <img src="{% static 'images/doge.jpg' %}" alt="头像" class="img-circle" style="width: 340px; margin-top: 50px; margin-right: 60px; ">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="mb-0">个人信息</h4>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" novalidate>
+    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="img-circle" width="150px" src={% static "images/doge.jpg" %}><span class="text-black-50">{{user_info.email}}</span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <form method="post" novalidate>
                         {% csrf_token %}
                             {% for field in form %}
-                            <div class="form-group">
+                            <div class="form-group" class="col-md-12">
                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 {{ field }}
                                 <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
                             </div>
                             {% endfor %}
-                            <input type="submit" value="提交" class="btn btn-primary">
-                        </form>
-                    </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">省份</label><input type="text" class="form-control" placeholder="enter address line 1" value="天津市"></div>
+                    <div class="col-md-12"><label class="labels">详细地址</label><input type="text" class="form-control" placeholder="enter address line 2" value="南开大学泰达校区"></div>
+                    <div class="col-md-12"><label class="labels">邮政编码</label><input type="text" class="form-control" placeholder="enter address line 2" value="362200"></div>
+                    <div class="col-md-12"><label class="labels">教育阶段</label><input type="text" class="form-control" placeholder="education" value="本科"></div>
                 </div>
+                <input type="submit" value="保存" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="col-md-12"><label class="labels">个性签名</label><input type="text" class="form-control" placeholder="experience" value="我是你爹"></div> <br>
+                <div class="col-md-12"><label class="labels">备注</label><input type="text" class="form-control" placeholder="additional details" value="这个是条懒狗，什么都没有留下"></div>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}
