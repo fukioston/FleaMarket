@@ -6,12 +6,25 @@ from django.conf import settings
 
 from user.models import *
 from .form.edit_item import ItemForm
+from .form.search_form import SearchForm
 from .models import *
 from random import *
 import os
 
+from item.form import search_form
+
 
 def show_home(request):
+    form = SearchForm(request)
+    if request.method == 'POST':
+        form = SearchForm(request, data=request.POST)
+        kw = form['search_field'].value()
+        goods = Items.objects.filter(gname__contains=kw)
+        if goods:
+            print('has goods')
+            return render(request, 'layout/search.html', {'items_list': goods})
+        form.add_error('search_field', '搜索物品不存在')
+
     list = Items.objects.all()
     ran = []
     i = 0
@@ -37,9 +50,9 @@ def show_home(request):
         query_set = UserInfo.objects.filter(id=user_id).first()
 
         return render(request, 'layout/home.html',
-                      {'items_list': finlist, 'current_url': current_url, 'user_info': query_set})
+                      {'items_list': finlist, 'current_url': current_url, 'user_info': query_set, 'form': form})
     return render(request, 'layout/home.html',
-                  {'items_list': finlist, 'current_url': current_url})
+                  {'items_list': finlist, 'current_url': current_url, 'form': form})
 
 
 def show_details(request, gid):
@@ -68,13 +81,15 @@ def show_submit(request):
         newintro = request.POST.get("newintro")
         newuserid = info['id']
         file = request.FILES.get('file')
-        newimg=file.name
+        newimg = file.name
         print(file.name)
         Items.objects.create(gname=newgname, userid=newuserid, price=newprice, intro_txt=newintro, img_index=newimg)
         with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
             for line in file.chunks():
                 f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
         return HttpResponse("<p>提交成功！</p>")
+
+
 def show_favorite(request):
     info = request.session.get('info')
     if info:
@@ -89,6 +104,8 @@ def show_favorite(request):
             favorite_list.extend(favorite_item)
         return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
+
+
 def change_favorite(request):
     item_id = request.GET.get('item_id')
     user_id = request.GET.get('user_id')
@@ -101,6 +118,7 @@ def change_favorite(request):
         UserFavorite.objects.create(userid=user_id, itemid=item_id)
         # 如果表中没有数据
         return JsonResponse({'status': True})
+
 
 def cancel_favorite(request):
     item_id = request.GET.get('item_id')
@@ -125,7 +143,6 @@ def isfavorite(request):
 
 
 def edit_details(request, gid):
-
     gid = int(gid)
     item_detail = Items.objects.get(id=gid)
     info = request.session.get('info')
@@ -133,11 +150,11 @@ def edit_details(request, gid):
         if info:
             user_id = info['id']
             query_set = UserInfo.objects.filter(id=user_id).first()
-            item_info = Items.objects.filter(id=gid).values_list('gname', 'price', 'intro_txt','img_index').first()
-            item_info2 = {'gname': item_info[0], 'price': item_info[1], 'intro_txt': item_info[2],'img_index': item_info[3]}
-            form = ItemForm(request, initial=item_info2 )
-            return render(request, 'layout/edit_details.html', {'user_info': query_set,'form':form})
-
+            item_info = Items.objects.filter(id=gid).values_list('gname', 'price', 'intro_txt', 'img_index').first()
+            item_info2 = {'gname': item_info[0], 'price': item_info[1], 'intro_txt': item_info[2],
+                          'img_index': item_info[3]}
+            form = ItemForm(request, initial=item_info2)
+            return render(request, 'layout/edit_details.html', {'user_info': query_set, 'form': form})
 
     form = ItemForm(request, data=request.POST)
     item = Items.objects.filter(id=gid).first()
@@ -146,7 +163,7 @@ def edit_details(request, gid):
         new_gname = form.cleaned_data['gname']
         new_intro_txt = form.cleaned_data['intro_txt']
         item.gname = new_gname
-        item.intro_txt= new_intro_txt
+        item.intro_txt = new_intro_txt
         item.price = new_price
         item.save()
         print('info_saved!')

@@ -6,7 +6,7 @@ from user.forms.bootstrap import BootStrap
 
 class SearchForm(BootStrap, forms.Form):
     search_field = forms.CharField(
-        label='搜索',
+        label='',
         widget=forms.TextInput(),
         required=True
     )
