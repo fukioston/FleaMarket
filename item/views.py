@@ -50,8 +50,18 @@ def show_details(request, gid):
 
 
 def show_submit(request):
+    info = request.session.get('info')
+    if info:
+        user_id = info['id']
+        query_set = UserInfo.objects.filter(id=user_id).first()
+        return render(request, 'layout/submit.html', {'user_info': query_set, })
     return render(request, 'layout/submit.html',)
 
 
 def show_favorite(request):
-    return render(request, 'layout/favorite.html',)
+    info = request.session.get('info')
+    if info:
+        user_id = info['id']
+        query_set = UserInfo.objects.filter(id=user_id).first()
+        return render(request, 'layout/favorite.html',{'user_info': query_set,})
+    return render(request, 'layout/favorite.html')
