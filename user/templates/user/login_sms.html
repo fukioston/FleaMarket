@@ -4,7 +4,7 @@
 <head>
    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
     <style>
-        .glass-container{
+                .glass-container{
             width: 400px;
             display: flex;
             justify-content: center;
@@ -22,11 +22,20 @@
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
-            color: orange;
+            color: black;
+        }
+        h2, a{
+            color: white;
         }
 
         body{
             background-image: url("{% static "images/bg_login.jpg" %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .account h2 {
