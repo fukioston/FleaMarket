@@ -1,12 +1,7 @@
 {% extends 'layout/basic.html' %}
 {% load static %}
-
-
-{% block content %}
-    <head>
-    <title>Home</title>
-
-    <style type="text/css">
+ {% block css %}
+<style type="text/css">
         a:hover{
             text-decoration: none;
         }
@@ -16,12 +11,10 @@
             padding: 0 10%;
         }
 
-        .space {
-            height: 150px;
-        }
+
 
         #search {
-            height: 150px;
+            height: 100px;
         }
 
         .input-group {
@@ -44,12 +37,35 @@
             margin-bottom: 20px;
 
         }
+        .space{
+            display: flex;
+            text-align: center;
+            width:100%;
+            height:280px;
+            margin: 20px;
+            padding: 0 10%;
+
+
+        }
+        .logo{
+
+
+            width:1305px;
+        }
+
     </style>
+    {% endblock %}
+
+
+{% block content %}
+    <head>
+    <title>Home</title>
 </head>
 <body>
 <div class="space">
-
+    <img class="logo" src="{% static 'images/ff49b6c5e00bfa654c50cf15115455c.jpg' %}" alt="">
 </div>
+
 <div id="search">
     <div class="input-group">
         <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
