@@ -41,4 +41,9 @@ def show_home(request):
 def show_details(request, gid):
     gid = int(gid)
     item_detail = Items.objects.get(id=gid)
-    return render(request, 'layout/details.html', {'item_detail': item_detail})
+    info = request.session.get('info')
+    if info:
+        user_id = info['id']
+        query_set = UserInfo.objects.filter(id=user_id).first()
+        return render(request, 'layout/details.html', {'item_detail': item_detail, 'user_info': query_set})
+    return render(request, 'layout/details.html', {'item_detail': item_detail,})

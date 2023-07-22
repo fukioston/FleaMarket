@@ -4,54 +4,58 @@
 
 {% block content %}
     <head>
-        <title>Home</title>
+    <title>Home</title>
 
-        <style type="text/css">
-            a:hover {
-                text-decoration: none;
-            }
+    <style type="text/css">
+        .row {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10%;
+        }
 
-            .row {
-                width: 100%;
-                margin: 0 auto;
-                padding: 0 10%;
-            }
+        .space {
+            height: 150px;
+        }
 
-            .space {
-                height: 150px;
-            }
+        #search {
+            height: 150px;
+        }
 
-            #search {
-                height: 150px;
-            }
+        .input-group {
+            width: 900px;
+            margin: 0 auto;
+        }
 
-            .input-group {
-                width: 900px;
-                margin: 0 auto;
-            }
+        .ellipsis {
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 显示2行文本 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+        }
+        .item:hover{
+            border: 1px solid #f1960c;
+            transform: scale(1.01);
+        }
+        .item{
+            margin-bottom: 20px;
 
-            .ellipsis {
-                display: -webkit-box;
-                -webkit-line-clamp: 2; /* 显示2行文本 */
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis; /* 文本溢出时显示省略号 */
-            }
-        </style>
-    </head>
-    <body>
-    <div class="space">
+        }
+    </style>
+</head>
+<body>
+<div class="space">
 
+</div>
+<div id="search">
+    <div class="input-group">
+        <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
     </div>
-    <div id="search">
-        <div class="input-group">
-            <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
-        </div>
-    </div>
+</div>
 
     <div class="row">
         {% for item in items_list %}
-            <div class="col-sm-4 col-md-3">
+            <div class="col-sm-4 col-md-3 item">
                 <div class="thumbnail">
                     <a href="/item/details/{{ item.id }} ">
                         <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
