@@ -61,17 +61,19 @@ def show_submit(request):
             return render(request, 'layout/submit.html', {'user_info': query_set, })
         return render(request, 'layout/submit.html', )
     if request.POST.get('sub'):
-        print("hihi")
+        print("suc")
         newgname = request.POST.get("newgname")
         newprice = request.POST.get("newprice")
         newintro = request.POST.get("newintro")
         newuserid = 1
-        user_id = info['id']
-        # file = request.FILES.get('file')
-
-        # with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
-        # for line in file.chunks():
-        # f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
+        file = request.FILES.get('file')
+        newimg=file.name
+        print(file.name)
+        Items.objects.create(gname=newgname, userid=newuserid, price=newprice, intro_txt=newintro, img_index=newimg)
+        with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+            for line in file.chunks():
+                f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
+        return HttpResponse("<p>提交成功！</p>")
 
 
 def submit(request):

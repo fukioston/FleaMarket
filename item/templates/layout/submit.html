@@ -48,29 +48,29 @@
         <br/><br/><br/><br/>
 
         <div class="inp">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1"><font size="4">商品名称：</font></label>
-                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder=""
+                    <input type="text" class="form-control input-lg" id="exampleInputEmail1" placeholder=""
                            name="newgname">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">您想挂出的价格：</font></label>
-                    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="¥"
+                    <input type="text" class="form-control input-lg" id="exampleInputEmail1" placeholder="¥"
                            name="newprice">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">商品说明与介绍：</font></label>
-                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
+                    <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
                            name="newintro">
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">您希望进行联系的手机号码：</font></label>
-                    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
+                    <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
                            name="newphone">
                 </div>
                 <br/>
@@ -79,14 +79,12 @@
                     <input type="file" id="exampleInputFile" accept=".jpg,.png,.jpeg" name="file">
                     <p class="help-block">Example block-level help text here.</p>
                 </div>
+                <div class="space"></div>
+                {% csrf_token %}
+                <input id="bt" type="submit" class="btn btn-success btn-lg" value="提交" name="sub"/>
             </form>
         </div>
 
-        <div class="space"></div>
-        <form method="post">
-            {% csrf_token %}
-            <input id="bt" type="submit" class="btn btn-success btn-lg" value="提交" name="sub"/>
-        </form>
         <div class="space"></div>
     </div>
     </body>
