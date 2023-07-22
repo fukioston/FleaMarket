@@ -79,8 +79,9 @@
 
 <body>
 <div class="glass-container" id="glass">
-    <h2>用户注册</h2>
+
     <form method="post" novalidate>
+     <h2>用户注册</h2>
         {% csrf_token %}
         {% for field in form %}
             {% if field.name == 'code' %}

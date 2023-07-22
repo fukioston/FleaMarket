@@ -23,5 +23,6 @@ urlpatterns = [
     path('favorite/', views.show_favorite),
     path('click_favorite/', views.change_favorite),
 path('cancel_favorite/', views.cancel_favorite),
-path('isfavorite/', views.isfavorite)
+path('isfavorite/', views.isfavorite),
+    path('edit_details/<gid>', views.edit_details),
 ]

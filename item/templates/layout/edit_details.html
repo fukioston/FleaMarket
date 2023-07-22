@@ -1,0 +1,49 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block css %}
+    <style>
+        img{
+            width: 200px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="img-circle" width="150px" src={% static "images/doge.jpg" %}><span class="text-black-50">{{user_info.email}}</span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <form method="post" novalidate>
+                        {% csrf_token %}
+                            {% for field in form %}
+                                {% if field.name == 'intro_txt' %}
+                                    <div class="form-group" class="col-md-12">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
+                            </div>
+                                    {% else %}
+                                    <div class="form-group" class="col-md-12">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
+                            </div>
+                                {% endif %}
+
+
+                            {% endfor %}
+
+                <input type="submit" value="保存" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -98,6 +98,7 @@
             {% if field.name == 'code' %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
                         <div class="clearfix">
                             <div class="col-md-6" style="padding-left: 0;">{{ field }}<div class="error-msg">{{ field.errors.0 }}</div></div>
                             <div class="col-md-6">
