@@ -25,4 +25,5 @@ urlpatterns = [
     path('cancel_favorite/', views.cancel_favorite),
     path('isfavorite/', views.isfavorite),
     path('edit_details/<gid>', views.edit_details, name='edit_details'),
+    path('delete/<gid>', views.gdelete, name='delete'),
 ]

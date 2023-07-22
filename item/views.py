@@ -151,3 +151,8 @@ def edit_details(request, gid):
         item.save()
         print('info_saved!')
         return redirect('/user/home/')
+
+def gdelete(request, gid):
+    gid = int(gid)
+    Items.objects.filter(id=gid).delete()
+    return redirect("http://127.0.0.1:8000/user/on_sales/")

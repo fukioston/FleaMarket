@@ -11,6 +11,9 @@
             margin: 0 auto;
             padding: 0 10%;
         }
+        #btnFavorite a{
+            color: white;
+        }
     </style>
     <div class="container">
         <h1 class="my-4">我的在售</h1>
@@ -29,6 +32,8 @@
                             <p class="card-text">联系方式: {{ user_info.email }}</p>
                             <button id="btnFavorite" class="btn btn-primary" role="button">
                                 <a href="/item/edit_details/{{ item.id }}">修改</a></button>
+                            <button id="btnFavorite" class="btn btn-primary" role="button">
+                                <a href="/item/delete/{{ item.id }}">删除</a></button>
                         </div>
                     </div>
                 </div>
