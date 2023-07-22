@@ -15,7 +15,7 @@
 
         .row {
             width: 100%;
-            margin: 0 auto;
+            margin: 100px 100px 100px 100px;
             padding: 0 10%;
         }
 
@@ -40,7 +40,7 @@
 
         .item:hover {
             border: 1px solid #f1960c;
-            transform: scale(1.01);
+            {#transform: scale(1.01);#}
         }
 
         .item {
@@ -62,6 +62,7 @@
 
             width: 1305px;
         }
+
 
     </style>
 {% endblock %}
@@ -98,7 +99,7 @@
             <div class="col-sm-4 col-md-3 item">
                 <div class="thumbnail">
                     <a href="/item/details/{{ item.id }} ">
-                        <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                        <img src="/static/images/{{ item.img_index }}" alt="..." style="">
                         <div class="caption">
                             <h3>
                                 ￥
