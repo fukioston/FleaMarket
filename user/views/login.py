@@ -56,7 +56,7 @@ def login_sms(request):
                 request.session['id'] = user_object.id
                 request.session['username'] = user_object.username
                 request.session.set_expiry(60 * 60 * 24 * 14)
-                return redirect('/user/index/')
+                return redirect('/item/')
             form.add_error('mobile_phone', '手机号或验证码错误')
     except ValidationError as e:
         form.add_error('code', e)

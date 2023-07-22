@@ -14,7 +14,7 @@ def register(request):
         try:
             if form.is_valid():
                 form.save()
-                return redirect('user/login/sms/')
+                return redirect('/user/login/sms/')
             form.add_error('mobile_phone', '手机号或验证码错误')
         except ValidationError as e:
             form.add_error('code', e)
