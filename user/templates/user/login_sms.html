@@ -4,16 +4,29 @@
 <head>
    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
     <style>
-        .account {
+        .glass-container{
             width: 400px;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-            box-shadow: 5px 5px 20px #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0,191,255, 0.075);
+            box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+            border: 2px rgba(255,255,255,0.4) solid;
+            border-bottom: 2px rgba(40,40,40,0.35) solid;
+            border-right: 2px rgba(40,40,40,0.35) solid;
 
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
+            color: orange;
+        }
+
+        body{
+            background-image: url("{% static "images/bg_login.jpg" %}");
         }
 
         .account h2 {
@@ -49,7 +62,7 @@
 
 
 <body>
-<div class="account">
+<div class="glass-container" id="glass">
     <h2>用户登录</h2>
     <form method="post" novalidate>
         {% csrf_token %}
