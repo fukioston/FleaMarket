@@ -10,12 +10,19 @@
         }
 
         body {
+            margin: 0;
             background: url("../../../static/images/background_user.png") repeat;
+        }
+
+        #back {
+            background-image: url("{% static 'icon/333.png' %}");
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
         .row {
             width: 100%;
-            margin: 100px 100px 100px 100px;
+            margin: 0;
             padding: 0 10%;
         }
 
@@ -30,7 +37,7 @@
         }
 
         .ellipsis {
-            height: 42.5px;
+            height: 42px;
             display: -webkit-box;
             -webkit-line-clamp: 2; /* 显示2行文本 */
             -webkit-box-orient: vertical;
@@ -63,7 +70,6 @@
             width: 1305px;
         }
 
-
     </style>
 {% endblock %}
 
@@ -73,49 +79,56 @@
         <title>Home</title>
     </head>
     <body>
-    <div class="space">
-        <img class="logo" src="{% static 'images/ff49b6c5e00bfa654c50cf15115455c.jpg' %}" alt="">
-    </div>
+    <div id="back">
 
-    <div id="search">
-        <div class="input-group">
-            <form method="post" novalidate>
-            {% csrf_token %}
-                <div class="row">
-                    <div class="col-md-9" style="padding-left: 0;">{{ form }}<div class="error-msg" style="color: red">{{ field.errors.0 }}</div></div>
-                    <div class="col-md-3">
-                        <input id="btnSubmit" type="submit" class="btn btn-primary" value="搜索"/>
+        <div class="space">
+        </div>
+        <div style="height: 75px">
+        </div>
+
+        <div id="search">
+            <div class="input-group">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-9" style="padding-left: 0;">{{ form }}
+                            <div class="error-msg " style="color: red">{{ field.errors.0 }}</div>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="btnSubmit" type="submit" class="btn btn-primary" value="搜索"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div style="height: 75px">
+        </div>
+
+        <div class="row">
+            {% for item in items_list %}
+                <div class="col-sm-4 col-md-3 item">
+                    <div class="thumbnail">
+                        <a href="/item/details/{{ item.id }} ">
+                            <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                            <div class="caption">
+                                <h3>
+                                    ￥
+                                    {{ item.price }}
+                                </h3>
+                                <p class="ellipsis">{{ item.gname }}</p>
+                                <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary"
+                                      role="button">查看商品</a></p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </form>
+            {% endfor %}
+
+        </div>
+        <div class="space">
+        </div>
     </div>
-
-    <div style="height: 50px">
-
-    </div>
-
-    <div class="row">
-        {% for item in items_list %}
-            <div class="col-sm-4 col-md-3 item">
-                <div class="thumbnail">
-                    <a href="/item/details/{{ item.id }} ">
-                        <img src="/static/images/{{ item.img_index }}" alt="..." style="">
-                        <div class="caption">
-                            <h3>
-                                ￥
-                                {{ item.price }}
-                            </h3>
-                            <p class="ellipsis">{{ item.gname }}</p>
-                            <p><a href="/item/details/{{ item.id }}" id="btnFavorite" class="btn btn-primary"
-                                  role="button">查看商品</a></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
-
-    </div>
-    <div class="space">
     </div>
     </body>
 

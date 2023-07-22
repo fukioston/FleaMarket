@@ -20,4 +20,4 @@ with open('utils/datas.json', encoding="utf-8", errors="ignore") as fr:
 
     for data in datas:
         models.Items.objects.create(gname=data['gname'], userid=data['userid'], price=data['price'],
-                             intro_txt=data['intro_txt'], img_index=data['img_index'])
+                             intro_txt=data['intro_txt'], img_index=data['img_index'], phone=data['phone'])
