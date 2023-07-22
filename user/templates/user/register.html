@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
 
     <style>
-                .glass-container{
+        .glass-container{
             width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
             border-radius: 10px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(2px);
             background-color: rgba(0,191,255, 0.075);
             box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
             border: 2px rgba(255,255,255,0.4) solid;
@@ -24,12 +24,9 @@
 
             margin-left: auto;
             margin-right: auto;
-            margin-top: 100px;
+            margin-top: 20px;
             padding: 20px 40px;
-            color: black;
-        }
-        h2, a{
-            color: white;
+            color: #9acfea;
         }
 
         body{
@@ -51,6 +48,22 @@
         }
         .error-msg{
             color: red;
+        }
+        h2{
+            text-align: center;
+        }
+        .btn {
+	        background: white;
+            color: black;
+            width: 10em;
+        }
+
+        .btn:hover{
+            background: black;
+            color: white;
+        }
+        a:hover{
+            color: #afd9ee;
         }
     </style>
 
@@ -79,7 +92,6 @@
 
 <body>
 <div class="glass-container" id="glass">
-
     <form method="post" novalidate>
      <h2>用户注册</h2>
         {% csrf_token %}
@@ -104,14 +116,13 @@
             {% endif %}
         {% endfor %}
 
-<div style="float:right">
+
+        <div style="text-align: center">
+            <input id="btnSubmit" type="submit" class="btn btn-primary" value="注  册"/>
+        </div>
+        <div style="text-align: center; font-size: 1em; margin-top: 1em;">
                 <a href="{% url 'login_sms' %}">短信登录</a>
                 <a href="{% url 'login' %}">密码登录</a>
-            </div>
-        <div class="row">
-            <div class="col-xs-3">
-                <input id="btnSubmit" type="submit" class="btn btn-primary" value="注  册"/>
-            </div>
         </div>
     </form>
 </div>

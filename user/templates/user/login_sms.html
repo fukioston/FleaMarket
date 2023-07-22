@@ -11,7 +11,7 @@
             align-items: center;
             gap: 20px;
             border-radius: 10px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(2px);
             background-color: rgba(0,191,255, 0.075);
             box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
             border: 2px rgba(255,255,255,0.4) solid;
@@ -22,11 +22,9 @@
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
-            color: black;
+            color: darkblue;
         }
-        h2, a{
-            color: white;
-        }
+
       .error-msg{
             color:red;
             height:7px;
@@ -47,6 +45,23 @@
         }
         .error-msg{
             color: red;
+        }
+
+        h2{
+            text-align: center;
+        }
+        .btn {
+	        background: white;
+            color: black;
+            width: 9em;
+        }
+
+        .btn:hover{
+            background: black;
+            color: white;
+        }
+        a:hover{
+            color: #afd9ee;
         }
     </style>
     <title></title>
@@ -100,15 +115,13 @@
             {% endif %}
         {% endfor %}
 <div>
-            <div style="float:right">
-                <a href="{% url 'register' %}">注册</a>
-                <a href="{% url 'login' %}">密码登陆</a>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-xs-3">
-                <input id="btnSubmit" type="submit" class="btn btn-primary" value="登录"/>
-            </div>
+        <div style="text-align: center">
+            <input id="btnSubmit" type="submit" class="btn btn-primary" value="登录"/>
+        </div>
+        <div style="text-align: center; font-size: 1.2em; margin-top: 1em;">
+            <a href="{% url 'register' %}">注册</a>
+            <a href="{% url 'login' %}">密码登陆</a>
         </div>
     </form>
 </div>
