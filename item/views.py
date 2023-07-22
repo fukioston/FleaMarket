@@ -94,8 +94,6 @@ def show_favorite(request):
 def change_favorite(request):
     item_id = request.GET.get('item_id')
     user_id = request.GET.get('user_id')
-    print(item_id)
-    print(user_id)
 
     # 如果表中有了数据就报错
     try:

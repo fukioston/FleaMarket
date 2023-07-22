@@ -27,12 +27,12 @@
                 width: 95%;
                 margin: 0 auto;
                 padding: 0 5%;
-                background-color: rgba(235, 232, 217, 0.51);
+                background-color: rgb(255, 255, 255);
             }
 
             #p {
-                position: absolute;
-                bottom: -75px;
+                position: relative;
+                bottom: -60px;
             }
 
             #search {
@@ -43,12 +43,18 @@
                 width: 900px;
                 margin: 0 auto;
             }
+
+            .price {
+                font-size: 4em;
+                color: #ff6200;
+            }
         </style>
     </head>
     <body>
 
 
     </div>
+
     <div id="search">
         <div class="input-group">
             <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
@@ -62,12 +68,18 @@
             </a>
         </div>
         <div class="media-body">
-            <div class="spaces">
-
+            <h4 class="media-heading" style="font-weight: bolder;"><font size="5">{{ item_detail.gname }}</font></h4>
+            <br/><br/>
+            <div class="background" style="background-color: rgba(157,157,157,0.13);">
+                <div style="padding: 20px">
+                    <h4 class="media-heading" style="">售价</h4>
+                    <h4 class="price">￥{{ item_detail.price }}</h4><br/><br/>
+                    <h4 class="media-heading">说明</h4>
+                    <h4 class="intro" style="font-size: 2em">{{ item_detail.intro_txt }}</h4><br/><br/>
+                    <h4 class="media-heading">卖家联系电话：</h4>
+                    <h4 class="userid">{{ user_info.mobile_phone }}</h4>
+                </div>
             </div>
-            <h4 class="media-heading"><font size="5">{{ item_detail.gname }}</font></h4><br/><br/><br/>
-            <h4 class="media-heading"><font size="4">{{ item_detail.intro_txt }}</font></h4><br/><br/><br/>
-            <h4 class="media-heading"><font size="4">卖家信息：</font>{{ item_detail.userid }}</h4>
             <p id="p">
                 <button id="btnFavorite" data-id=0 class="btn btn-primary" role="button">收藏</button>
             </p>
@@ -76,58 +88,54 @@
             </div>
         </div>
     </div>
-    <div class="space">
 
-    </div>
 {% endblock %}
 {% block js %}
     <script>
-    var item_id = {{ item_detail.id }};
-     var user_id = {{ user_info.id }};
-    {#  $('#btnFavorite').data('id', 1)#}
-    {##}
-    {#console.log($('#btnFavorite').data('id'))#}
+        var item_id = {{ item_detail.id }};
+        var user_id = {{ user_info.id }};
+        {#  $('#btnFavorite').data('id', 1)#}
+        {##}
+        {#console.log($('#btnFavorite').data('id'))#}
         yesornot()
 
         btnFavorite_click()
-       function yesornot(){
+
+        function yesornot() {
             $.ajax({
-                            {#请求的路由地址#}
-                            url: "/item/isfavorite/",
-                            type: "GET",
-                            data: {
+                {#请求的路由地址#}
+                url: "/item/isfavorite/",
+                type: "GET",
+                data: {
 
-                                item_id: item_id,
-                                user_id: user_id,
-                            },
-                            dataType: "JSON",
-                            success: function (res) {
-                                if (res.status) {
-                                    console.log(res)
-                                    $('#btnFavorite').data('id', 1)
-                                    $('#btnFavorite').text('已经收藏')
+                    item_id: item_id,
+                    user_id: user_id,
+                },
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.status) {
+                        console.log(res)
+                        $('#btnFavorite').data('id', 1)
+                        $('#btnFavorite').text('取消收藏')
 
-                                }
-                                else{
-                                    console.log(res)
-                                    $('#btnFavorite').data('id', 0)
-                                    $('#btnFavorite').text('收藏')
-                                }
-
-                            }
-
-                        })
+                    } else {
+                        console.log(res)
+                        $('#btnFavorite').data('id', 0)
+                        $('#btnFavorite').text('收藏')
                     }
 
+                }
 
+            })
+        }
 
 
         function btnFavorite_click() {
             $('#btnFavorite').click(function () {
-                console.log($(this).data('id'))
-                    dataid=$(this).data('id')
+                    console.log($(this).data('id'))
+                    dataid = $(this).data('id')
                     {#获取userid、itemid#}
-                    if (dataid===0) {
+                    if (dataid === 0) {
                         $.ajax({
                             {#请求的路由地址#}
                             url: "/item/click_favorite/",
@@ -146,9 +154,8 @@
                             }
 
                         })
-                    }
-                    else{
-                              $.ajax({
+                    } else {
+                        $.ajax({
                             {#请求的路由地址#}
                             url: "/item/cancel_favorite/",
                             type: "GET",
