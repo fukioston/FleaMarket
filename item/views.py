@@ -65,7 +65,7 @@ def show_submit(request):
         newgname = request.POST.get("newgname")
         newprice = request.POST.get("newprice")
         newintro = request.POST.get("newintro")
-        newuserid = 1
+        newuserid = info['id']
         file = request.FILES.get('file')
         newimg=file.name
         print(file.name)
@@ -74,22 +74,6 @@ def show_submit(request):
             for line in file.chunks():
                 f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
         return HttpResponse("<p>提交成功！</p>")
-
-
-def submit(request):
-    print("hi")
-    if request.POST.get('sub'):
-        print("hihi")
-        newgname = request.POST.get("newgname")
-        newprice = request.POST.get("newprice")
-        newintro = request.POST.get("newintro")
-        newuserid = 1
-        # file = request.FILES.get('file')
-
-        # with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
-        # for line in file.chunks():
-        # f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
-
 
 def show_favorite(request):
     info = request.session.get('info')
