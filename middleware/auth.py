@@ -14,16 +14,13 @@ class AuthMiddleware(MiddlewareMixin):
                                  '/user/login/sms/',
                                  '/user/index/',
                                  '/user/logout',
-                                 'item/search',
+                                 '/item/',
                                  ]:
             return
-
+        
         # 1.读取当前访问的用户的session信息，如果能读到，说明已登陆过，就可以继续向后走。
         info_dict = request.session.get("info")
-        # print(info_dict)
         if info_dict:
             return
-
         # 2.没有登录过，重新回到登录页面
-        # return redirect('/user/login/')
-        return
+        return redirect('/user/login/')
