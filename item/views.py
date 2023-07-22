@@ -47,3 +47,11 @@ def show_details(request, gid):
         query_set = UserInfo.objects.filter(id=user_id).first()
         return render(request, 'layout/details.html', {'item_detail': item_detail, 'user_info': query_set})
     return render(request, 'layout/details.html', {'item_detail': item_detail,})
+
+
+def show_submit(request):
+    return render(request, 'layout/submit.html',)
+
+
+def show_favorite(request):
+    return render(request, 'layout/favorite.html',)
