@@ -41,7 +41,10 @@
             margin: 0;
             padding: 0;
         }
-
+       .error-msg{
+            color:red;
+            height:7px;
+        }
         .account h2 {
             margin-top: 10px;
             text-align: center;
@@ -85,8 +88,8 @@
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
                         <div class="clearfix">
-                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg">{{ field.errors.0 }}</span></div>
-                            <div class="col-md-6"><input type="button" id="btnSms" class="btn btn-default"
+                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<div class="error-msg">{{ field.errors.0 }}</div></div>
+                            <div class="col-md-6"><input type="button" id="btnSms" class="btn btn-default "
                                                          value="点击获取验证码">
                             </div>
                         </div>
@@ -95,7 +98,7 @@
             <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {{ field }}
-                    <span class="error-msg">{{ field.errors.0 }}</span>
+                    <div class="error-msg">{{ field.errors.0 }}</div>
                     </div>
             {% endif %}
         {% endfor %}

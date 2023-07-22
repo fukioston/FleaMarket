@@ -23,7 +23,6 @@ urlpatterns = [
     path('edit_info/', home.edit_info,name="edit_info"),
     path('sms/code/', login.send_sms,name="send_sms"),
     path('login/sms/', login.login_sms,name="login_sms"),
-    path('index/', login.index,name="index"),
     path('home/', home.home,name="home"),
     path('register/',register.register,name="register"),
     path('image/code/',login.image_code,name='image_code'),

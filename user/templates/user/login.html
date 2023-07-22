@@ -12,7 +12,8 @@
             text-align: center;
         }
         .error-msg{
-            color:red
+            color:red;
+            height:7px;
         }
         .glass-container{
             width: 400px;
@@ -83,7 +84,7 @@
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
                         <div class="clearfix">
-                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<span class="error-msg">{{ field.errors.0 }}</span></div>
+                            <div class="col-md-6" style="padding-left: 0;">{{ field }}<div class="error-msg">{{ field.errors.0 }}</div></div>
                             <div class="col-md-6">
                                  <img id="imageCode" src="{% url 'image_code' %}" alt="图片验证码">
                             </div>

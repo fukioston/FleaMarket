@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 998;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background-color: rgba(0, 0, 0, 0.1);
-        }
+<style>
 
-        .modal .container {
-            width: 404px;
-            height: 200px;
+
+body{
+
+}
+
+    .modal{
+    display: none;
+      position: fixed;
+      z-index: 998;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.1);
+  }
+    .modal .container{
+      width: 404px;
+      height: 200px;
 
             background-color: #fcd7d7;
 
@@ -92,16 +97,14 @@
         .button2:hover {
         {#background-color: #CF5A5A;#} color: white;
         }
-
-    </style>
-    {% block css %}
-
-    {% endblock %}
-    <style>
         .navbar {
             border-radius: 0;
         }
     </style>
+    {% block css %}
+
+    {% endblock %}
+
     <script type="text/javascript">
 
         function popDiv() {
@@ -138,54 +141,80 @@
                 {% endif %}
 
 
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not user_info %}
-                    <li><a href="{% url 'register' %} ">注册</a></li>
-                    <li><a href="{% url 'login' %} ">登录</a></li>
+                    <li><a href="{% url 'register'%} ">注册</a></li>
+                    <li><a href="{% url 'login'%} ">登录</a></li>
 
                 {% else %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">{{ user_info.username }}<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/user/home">个人资料</a></li>
-                            <li><a href="/user/edit_info">更改信息</a></li>
-                            <li><a href="/user/edit_pwd/">更改密码</a></li>
-                            <li><a href="/user/on_sales/">我的商品</a></li>
-                            <li><a href="/item/submit/">上传商品</a></li>
-                            <li><a href="/item/favorite/">我的收藏</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li id="poplayer"><a href="javascript:void(0)" onclick="popDiv();">退出登录</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{user_info.username}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/user/home">个人资料</a></li>
+                        <li><a href="/user/edit_info">更改信息</a></li>
+                        <li><a href="/user/edit_pwd/">更改密码</a></li>
+                        <li><a href="/user/on_sales/">我的商品</a></li>
+                        <li><a href="/item/submit/">上传商品</a></li>
+                        <li><a href="/item/favorite/">我的收藏</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li id="poplayer" ><a  href="javascript:void(0)" onclick="popDiv();">退出登录</a></li>
 
-                        </ul>
-                    </li>
+                    </ul>
+                </li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
 <div id="popup" class="modal"> <!-- 遮罩层 -->
-    <div class="container">
-        <p>
-        <h2>确认退出登录？</h2>
-        </p>
-        <div class="close">
-            <a href="javascript:void(0)" onclick="closePop();">X</a>
-        </div>
-        <div class="back">
-            {#                <a href="{% url 'logout' %}">注销</a>#}
-            <button class="button1"><a href="{% url 'logout' %}">确认</a></button>
-            <button class="button2" onclick="closePop();"><a>取消</a></button>
+        <div class="container">
+            <p>
+            <h2>确认退出登录？</h2>
+            </p>
+            <div class="close">
+                <a href="javascript:void(0)" onclick="closePop();">X</a>
+            </div>
+            <div class="back">
+{#                <a href="{% url 'logout' %}">注销</a>#}
+                <button class="button1" ><a href="{% url 'logout' %}">确认</a></button>
+                <button class="button2" onclick="closePop();"><a >取消</a></button>
+            </div>
         </div>
     </div>
-</div>
 {#"""#}
 {#-----------------这里是content的block喲---------------------------------------#}
 {#"""#}
 <div>
     {% block content %}{% endblock %}
 </div>
+
+{#<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>#}
+{#          .path-0{#}
+{#            animation:pathAnim-0 4s;#}
+{#            animation-timing-function: linear;#}
+{#            animation-iteration-count: infinite;#}
+{#          }#}
+{#          @keyframes pathAnim-0{#}
+{#            0%{#}
+{#              d: path("M 0,400 C 0,400 0,133 0,133 C 139.28571428571428,144.25 278.57142857142856,155.5 405,145 C 531.4285714285714,134.5 645,102.25 746,94 C 847,85.75 935.4285714285716,101.5 1049,112 C 1162.5714285714284,122.5 1301.2857142857142,127.75 1440,133 C 1440,133 1440,400 1440,400 Z");#}
+{#            }#}
+{#            25%{#}
+{#              d: path("M 0,400 C 0,400 0,133 0,133 C 131.14285714285714,143.92857142857144 262.2857142857143,154.85714285714286 378,161 C 493.7142857142857,167.14285714285714 594,168.5 708,172 C 822,175.5 949.7142857142858,181.14285714285714 1074,175 C 1198.2857142857142,168.85714285714286 1319.142857142857,150.92857142857144 1440,133 C 1440,133 1440,400 1440,400 Z");#}
+{#            }#}
+{#            50%{#}
+{#              d: path("M 0,400 C 0,400 0,133 0,133 C 89.42857142857142,133.21428571428572 178.85714285714283,133.42857142857142 297,135 C 415.14285714285717,136.57142857142858 561.9999999999999,139.5 694,151 C 826.0000000000001,162.5 943.1428571428573,182.57142857142856 1065,181 C 1186.8571428571427,179.42857142857144 1313.4285714285713,156.21428571428572 1440,133 C 1440,133 1440,400 1440,400 Z");#}
+{#            }#}
+{#            75%{#}
+{#              d: path("M 0,400 C 0,400 0,133 0,133 C 101.96428571428572,130.10714285714286 203.92857142857144,127.21428571428571 337,114 C 470.07142857142856,100.78571428571429 634.2500000000001,77.25 744,94 C 853.7499999999999,110.75 909.0714285714284,167.7857142857143 1016,181 C 1122.9285714285716,194.2142857142857 1281.4642857142858,163.60714285714283 1440,133 C 1440,133 1440,400 1440,400 Z");#}
+{#            }#}
+{#            100%{#}
+{#              d: path("M 0,400 C 0,400 0,133 0,133 C 139.285");#}
+{#            }#}
+{#          }#}
+
 
 
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
