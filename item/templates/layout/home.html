@@ -75,15 +75,9 @@
             <input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索</span>
         </div>
     </div>
-<div id="search">
-    <div class="input-group">
-        <form method="post" novalidate>
-            {% csrf_token %}
-            {{ search_field }}<input id="btnSubmit" type="submit" class="btn btn-primary" value="搜索"/>
-            {{ search_field.error }}
-        </form>
+    <div style="height: 50px">
+
     </div>
-</div>
 
     <div class="row">
         {% for item in items_list %}
