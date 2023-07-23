@@ -20,8 +20,12 @@ def show_home(request):
         form = SearchForm(request, data=request.POST)
         kw = form['search_field'].value()
         goods = Items.objects.filter(gname__contains=kw)
+        info = request.session.get('info')
         if goods:
-            print('has goods')
+            if info:
+                user_id = info['id']
+                query_set = UserInfo.objects.filter(id=user_id).first()
+                return render(request, 'layout/search.html', {'items_list': goods, 'kw': kw,'user_info': query_set,})
             return render(request, 'layout/search.html', {'items_list': goods,'kw': kw})
         form.add_error('search_field', '搜索物品不存在')
 
@@ -89,8 +93,6 @@ def show_submit(request):
             for line in file.chunks():
                 f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
         return HttpResponse("<p>提交成功！</p>")
-
-
 def show_favorite(request):
     info = request.session.get('info')
     if info:
@@ -105,8 +107,6 @@ def show_favorite(request):
             favorite_list.extend(favorite_item)
         return render(request, 'layout/favorite.html', {'user_info': query_set, 'favorite_list': favorite_list})
     return render(request, 'layout/favorite.html')
-
-
 def change_favorite(request):
     item_id = request.GET.get('item_id')
     user_id = request.GET.get('user_id')
