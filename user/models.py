@@ -7,6 +7,7 @@ class UserInfo(models.Model):
     password = models.CharField(verbose_name='密码', max_length=32)
     email = models.EmailField(verbose_name='邮箱', max_length=32)
     mobile_phone = models.CharField(verbose_name='手机号', max_length=32)
+    profile_img=models.CharField(verbose_name='头像', max_length=100)
 
 
 class UserFavorite(models.Model):

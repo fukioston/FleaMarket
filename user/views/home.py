@@ -5,7 +5,7 @@ from user.forms.edit_info import InfoForm
 from user.forms.edit_pwd import PwdForm
 from user.models import UserInfo
 from item.models import Items
-
+import os
 
 def home(request):
     info = request.session.get('info')
@@ -34,7 +34,7 @@ def edit_info(request):
     user_id = info['id']
     query_set = UserInfo.objects.filter(id=user_id).first()
     if request.method == 'GET':
-        user_info = UserInfo.objects.filter(id=user_id).values_list('username', 'email', 'mobile_phone').first()
+        user_info = UserInfo.objects.filter(id=user_id).values_list('username', 'email', 'mobile_phone','profile_img').first()
         init_info = {'username': user_info[0], 'mobile_phone': user_info[2], 'email': user_info[1]}
         form = InfoForm(request, initial=init_info)
         return render(request, 'user/edit_info.html', {'user_info': query_set, 'form': form})
@@ -42,13 +42,19 @@ def edit_info(request):
     form = InfoForm(request, data=request.POST)
     user = UserInfo.objects.filter(id=user_id).first()
     if form.is_valid():
+        file = request.FILES.get('file')
+        newimg = file.name
         new_name = form.cleaned_data['username']
         new_phone = form.cleaned_data['mobile_phone']
         new_email = form.cleaned_data['email']
         user.username = new_name
         user.mobile_phone = new_phone
         user.email = new_email
+        user.profile_img=newimg
         user.save()
+        with open(os.path.join('static/profile_img', file.name), 'wb') as f:  # 在static目录下创建同名文件
+            for line in file.chunks():
+                f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
         print('info_saved!')
         return redirect('/user/home/')
 

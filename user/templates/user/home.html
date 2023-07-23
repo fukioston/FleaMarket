@@ -3,7 +3,10 @@
 
 {% block css %}
     <style>
-
+.img-circle{
+    width: 300px;
+    height: 300px;
+}
     </style>
     <title>个人信息</title>
 {% endblock %}
@@ -13,7 +16,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="text-center mb-3">
-                    <img src="{% static 'images/doge.jpg' %}" alt="头像" class="img-circle"
+                    <img src="/static/profile_img/{{ user_info.profile_img }}" alt="头像" class="img-circle"
                          style="width: 340px; margin-top: 50px; margin-right: 60px; ">
                 </div>
             </div>
