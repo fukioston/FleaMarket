@@ -202,6 +202,12 @@ body{
 a:hover{
     cursor:pointer;
 }
+a {
+  text-decoration: none;
+}
+.alerttext{
+    text-align: center;
+}
     </style>
 
     {% block css %}
@@ -282,21 +288,15 @@ a:hover{
 
                             <div class="modal-body pl-5 mt-3">
                                 <div class="row">
-<div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/q3Q5A5e.gif"  alt="Smiling Face With Heart-Eyes" title="Smiling Face With Heart-Eyes" width="34" height="34"></div>
-                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/v4eoLxA.png" alt="Eyes" title="Eyes" width="24" height="24" ></div>
-                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/RVyqzqU.png"  alt="Thinking Face" title="Thinking Face" width="24" height="24" ></div>
-                                    <div class="col-auto  example-block"><img class="kg-image image" src="https://i.imgur.com/EPxyW4M.gif" width="24" height="24" ></div>
-                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/q3Q5A5e.gif"  alt="Smiling Face With Heart-Eyes" title="Smiling Face With Heart-Eyes" width="34" height="34"></div>
-                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/ONLx0Eu.png" alt="Bell" title="Bell" width="24" height="24"></div>
-                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/v4eoLxA.png" alt="Eyes" title="Eyes" width="24" height="24" ></div>
-                                    <div class="col-auto  example-block"><img class="kg-image image" src="https://i.imgur.com/EPxyW4M.gif" width="24" height="24" ></div>
+
                                 </div>
                             <div class="row">
-                                <div class="col">
-                                    <h5  class="font-weight-bold mt-3">您确定要退出吗？</h5>
-                                        <h6 class="text-muted fs-14">退出后需要重新登录 </h6>
-                                        <h6><span><i class="fa fa-info-circle text-muted" aria-hidden="true"></i>
-                                        </span> <small class="text-muted">请三思而后行</small></h6>
+                                <div class="col alerttext">
+                                    <h2  class="font-weight-bold mt-3">您确定要退出吗？</h2>
+                                        <h3 class="text-muted fs-14">退出后需要重新登录 </h3>
+{#                                        <h6><span><i class="fa fa-info-circle text-muted" aria-hidden="true"></i>#}
+{#                                        </span> <small class="text-muted">请三思而后行</small></h6>#}
+
                                 </div>
                             </div>
                         </div>
