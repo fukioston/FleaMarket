@@ -21,7 +21,9 @@
         .itemimg{
             margin-top: 100px;
         }
-
+        textarea {
+        resize: none;
+    }
 
 
     </style>
@@ -41,7 +43,7 @@
                                 {% if field.name == 'intro_txt' %}
                                     <div class="form-group" class="col-md-12">
                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                {{ field }}
+                                    {{ field }}
                                 <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
                             </div>
                                     {% else %}

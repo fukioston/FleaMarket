@@ -199,8 +199,11 @@ body{
             width: 100%;
             z-index: 1000;
         }
-
+a:hover{
+    cursor:pointer;
+}
     </style>
+
     {% block css %}
 
     {% endblock %}
@@ -263,6 +266,7 @@ body{
     </div>
 </nav>
 <div class="container">
+
              <!-- Button trigger modal -->
 
                 <!-- Modal -->
@@ -278,7 +282,14 @@ body{
 
                             <div class="modal-body pl-5 mt-3">
                                 <div class="row">
-
+<div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/q3Q5A5e.gif"  alt="Smiling Face With Heart-Eyes" title="Smiling Face With Heart-Eyes" width="34" height="34"></div>
+                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/v4eoLxA.png" alt="Eyes" title="Eyes" width="24" height="24" ></div>
+                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/RVyqzqU.png"  alt="Thinking Face" title="Thinking Face" width="24" height="24" ></div>
+                                    <div class="col-auto  example-block"><img class="kg-image image" src="https://i.imgur.com/EPxyW4M.gif" width="24" height="24" ></div>
+                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/q3Q5A5e.gif"  alt="Smiling Face With Heart-Eyes" title="Smiling Face With Heart-Eyes" width="34" height="34"></div>
+                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/ONLx0Eu.png" alt="Bell" title="Bell" width="24" height="24"></div>
+                                    <div class="col-auto  example-block"><img class="image" src="https://i.imgur.com/v4eoLxA.png" alt="Eyes" title="Eyes" width="24" height="24" ></div>
+                                    <div class="col-auto  example-block"><img class="kg-image image" src="https://i.imgur.com/EPxyW4M.gif" width="24" height="24" ></div>
                                 </div>
                             <div class="row">
                                 <div class="col">
@@ -291,7 +302,8 @@ body{
                         </div>
                       <div class="modal-footer">
                           <a href="{% url 'logout' %}"><button type="button" class="btn btn-lg bg-danger"><small>确认退出</small></button> </a>
-                               <button type="button" class="btn btn-lg bg-red  default text-info " data-wow-delay="0.7s"><small>取消</small></button>
+                               <button type="button" class=" btn btn-lg bg-red  default text-info " aria-label="Close" data-dismiss="modal" data-wow-delay="0.7s"><small>取消</small></button>
+{#                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
 
 {#                        <button type="button" class="btn btn-lg bg-danger text-white " data-dismiss="modal" data-wow-delay="0.7s"><a href="{% url 'logout' %}">确认退出</a></button>#}
 {#                        <button type="button" class="btn btn-lg bg-red  default text-info " data-wow-delay="0.7s"><small>取消</small></button>#}

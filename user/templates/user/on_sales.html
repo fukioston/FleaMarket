@@ -31,10 +31,11 @@
                             <p class="card-text">价格: {{ item.price }}</p>
                             <p class="card-text">出售者: {{ user_info.username }}</p>
                             <p class="card-text">联系方式: {{ item.phone }}</p>
-                            <button id="btnFavorite" class="btn btn-primary" role="button">
-                                <a href="/item/edit_details/{{ item.id }}">修改</a></button>
-                            <button id="btnFavorite" class="btn btn-primary" role="button">
-                                <a href="/item/delete/{{ item.id }}">删除</a></button>
+
+                                <a href="/item/edit_details/{{ item.id }}">
+                                    <button id="btnFavorite" class="btn btn-primary" role="button">修改</button></a>
+                                <a href="/item/delete/{{ item.id }}">
+                                    <button id="btnFavorite" class="btn btn-primary" role="button">删除</button></a>
                         </div>
                     </div>
                 </div>

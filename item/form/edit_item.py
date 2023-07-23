@@ -13,17 +13,17 @@ class ItemForm(BootStrap,forms.Form):
     )
     price = forms.CharField(
         label='价格',
-        widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        widget=forms.Textarea(attrs={'rows': 1, 'cols': 40}),
         required=True,
     )
     intro_txt= forms.CharField(
         label='介绍',
-        widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        widget=forms.Textarea(attrs={'rows': 7, 'cols': 40}),
         required=True,
     )
     phone=forms.CharField(
         label='联系电话',
-        widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        widget=forms.Textarea(attrs={'rows': 1, 'cols': 40}),
         required=True,
     )
 

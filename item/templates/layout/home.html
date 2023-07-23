@@ -45,10 +45,13 @@
             overflow: hidden;
             text-overflow: ellipsis; /* 文本溢出时显示省略号 */
         }
+        .item{
+            border: 1px solid white;
+        }
 
         .item:hover {
             border: 1px solid #f1960c;
-            {#transform: scale(1.01);#}
+            transform: scale(1.03);
         }
 
         .item {
@@ -65,7 +68,10 @@
             padding: 0 10%;
 
         }
-
+#item_img{
+    width:300px ;
+    height:300px;
+}
         .logo {
 
             width: 1305px;
@@ -111,7 +117,7 @@
                 <div class="col-sm-4 col-md-3 item">
                     <div class="thumbnail">
                         <a href="/item/details/{{ item.id }} ">
-                            <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                            <img id="item_img" src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
                             <div class="caption">
                                 <h3>
                                     ￥

@@ -12,8 +12,6 @@ from random import *
 import os
 
 from item.form import search_form
-
-
 def show_home(request):
     form = SearchForm(request)
     if request.method == 'POST':
@@ -57,8 +55,6 @@ def show_home(request):
                       {'items_list': finlist, 'current_url': current_url, 'user_info': query_set, 'form': form})
     return render(request, 'layout/home.html',
                   {'items_list': finlist, 'current_url': current_url, 'form': form})
-
-
 def show_details(request, gid):
     gid = int(gid)
     item_detail = Items.objects.get(id=gid)
@@ -68,8 +64,6 @@ def show_details(request, gid):
         query_set = UserInfo.objects.filter(id=user_id).first()
         return render(request, 'layout/details.html', {'item_detail': item_detail, 'user_info': query_set})
     return render(request, 'layout/details.html', {'item_detail': item_detail, })
-
-
 def show_submit(request):
     info = request.session.get('info')
     if request.method == 'GET':
@@ -119,16 +113,12 @@ def change_favorite(request):
         UserFavorite.objects.create(userid=user_id, itemid=item_id)
         # 如果表中没有数据
         return JsonResponse({'status': True})
-
-
 def cancel_favorite(request):
     item_id = request.GET.get('item_id')
     user_id = request.GET.get('user_id')
     if UserFavorite.objects.get(userid=user_id, itemid=item_id):
         UserFavorite.objects.get(userid=user_id, itemid=item_id).delete()
         return JsonResponse({'status': True, 'err': "已经取消收藏"})
-
-
 def isfavorite(request):
     item_id = request.GET.get('item_id')
     user_id = request.GET.get('user_id')
@@ -141,8 +131,6 @@ def isfavorite(request):
         # 如果表中没有数据
         print('cao')
         return JsonResponse({'status': False})
-
-
 def edit_details(request, gid):
     gid = int(gid)
     item_detail = Items.objects.get(id=gid)
@@ -163,13 +151,14 @@ def edit_details(request, gid):
         new_price = form.cleaned_data['price']
         new_gname = form.cleaned_data['gname']
         new_intro_txt = form.cleaned_data['intro_txt']
+        new_phone=form.cleaned_data['phone']
         item.gname = new_gname
         item.intro_txt = new_intro_txt
         item.price = new_price
+        item.phone=new_phone
         item.save()
         print('info_saved!')
         return redirect('/user/on_sales')
-
 def gdelete(request, gid):
     gid = int(gid)
     Items.objects.filter(id=gid).delete()

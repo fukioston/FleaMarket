@@ -38,6 +38,10 @@
                 text-decoration: none;
                 background-image: url("../../../static/icon/bottom.png");
             }
+            textarea {
+        resize: none;
+    }
+
         </style>
 
     </head>
@@ -60,8 +64,8 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1"><font size="4">商品名称：</font></label>
-                    <input type="text" class="form-control input-lg" id="exampleInputEmail1" placeholder=""
-                           name="newgname">
+                    <textarea type="text" class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入商品名称"
+                              name="newgname" rows="3"></textarea>
                 </div>
                 <br/>
                 <div class="form-group">
@@ -72,13 +76,13 @@
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">商品说明与介绍：</font></label>
-                    <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
-                           name="newintro">
+                    <textarea  class=" intro_text form-control input-lg" id="exampleInputPassword1" placeholder="请输入商品介绍"
+                               name="newintro" rows="6" ></textarea>
                 </div>
                 <br/>
                 <div class="form-group">
                     <label for="exampleInputPassword1"><font size="4">您希望进行联系的手机号码：</font></label>
-                    <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder=""
+                    <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder="请输入卖家联系电话"
                            name="newphone">
                 </div>
                 <br/>
