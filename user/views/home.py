@@ -46,7 +46,7 @@ def edit_info(request):
         if file:
             newimg = file.name
             user.profile_img=newimg
-            with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+            with open(os.path.join('static/profile_img', file.name), 'wb') as f:  # 在static目录下创建同名文件
                 for line in file.chunks():
                     f.write(line)
         new_name = form.cleaned_data['username']
