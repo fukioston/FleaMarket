@@ -26,7 +26,7 @@
             .inp {
                 width: 90%;
                 position: relative;
-                left: 100px;
+
             }
 
             #bt {
@@ -37,10 +37,40 @@
             input[type=file] {
                 text-decoration: none;
                 background-image: url("../../../static/icon/bottom.png");
+
             }
             textarea {
         resize: none;
     }
+            {#下面是设置点击图片能够上传的代码#}
+            .img_upload{
+                width: 450px;
+                height: 450px;
+            }
+            #item_picture{
+                width: 450px;
+                height: 450px;
+            }
+            .upload_btn:hover{
+    cursor:pointer;
+}
+            .upload-all{
+                display: flex;
+                width: 1300px;
+                justify-content: center;
+
+            }
+            .form-group{
+                width: 500px;
+            }
+            .upload-left{
+                width: 600px;
+            }
+            .upload-right{
+                width: 700px;
+            }
+
+
 
         </style>
 
@@ -51,9 +81,7 @@
         <div class="col-md-6">
             <h1><font size="6">挂出您的商品到橱窗——</font></h1>
         </div>
-        <div class="col-md-5">
-            <img style="width: 40%;" src={% static 'images/cart_logo.png' %}>
-        </div>
+
         <div class="space"></div>
 
         <label for="basic-url"><font size="5">商品信息：</font></label>
@@ -62,6 +90,26 @@
         <div class="inp">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+
+
+
+                <div class="upload-all">
+                    <div class="upload-left">
+                <div class="form-group ">
+                    <label for="exampleInputFile"><font size="4">提交商品图</font></label>
+                    <div class="img_upload"    style="position: relative;">
+                         <input  id="fileInput" class="upload_btn" accept=".jpg,.png,.jpeg"
+                                 style="position: absolute; top: 0; bottom: 0; left: 0;right: 0; opacity: 0;" type="file" >
+  <!-- 设置商品界面的图片 -->
+         <img id="item_picture" src="{% static 'icon/add.png' %}"  alt="请上传图片" title="preview-img" class="Picture active">
+                    </div>
+
+{#                    <input type="file" id="exampleInputFile" style=" width: 200px" accept=".jpg,.png,.jpeg" name="file">#}
+
+                </div>
+                    </div>
+
+                     <div class="upload-right">
                 <div class="form-group">
                     <label for="exampleInputEmail1"><font size="4">商品名称：</font></label>
                     <textarea type="text" class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入商品名称"
@@ -86,19 +134,36 @@
                            name="newphone">
                 </div>
                 <br/>
-                <div class="form-group ">
-                    <label for="exampleInputFile"><font size="4">提交商品图</font></label>
-                    <input type="file" id="exampleInputFile" accept=".jpg,.png,.jpeg" name="file">
-                    <p class="help-block">Example block-level help text here.</p>
+                        <input id="bt" type="submit" class="btn btn-success btn-lg" value="提交" name="sub"/>
+                        </div>
                 </div>
-                <div class="space"></div>
-                {% csrf_token %}
-                <input id="bt" type="submit" class="btn btn-success btn-lg" value="提交" name="sub"/>
+
+
+
             </form>
         </div>
 
         <div class="space"></div>
     </div>
+    {% block js %}
+        <script>
+    const fileInput = document.getElementById('fileInput');
+    const itemPicture = document.getElementById('item_picture');
+
+    fileInput.addEventListener('change', function () {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function () {
+            itemPicture.src = reader.result;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+        {% endblock %}
     </body>
     </html>
 {% endblock %}
