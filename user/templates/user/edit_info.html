@@ -3,19 +3,37 @@
 
 {% block css %}
     <style>
-        img{
-            width: 200px;
-        }
 
+        .p-3{
+            margin-top: 50px;
+            font-size: 30px;
+
+        }
+        .form-control {
+            width: 500px; /* Adjust the width as needed */
+            height: 45px;
+            font-size: 20px;
+        }
+.main-content {
+            display: flex;
+            justify-content: center;
+        }
+.form_label{
+    font-family: "微軟正黑體 Light";
+}
+.profile{
+    margin-top: 50px;
+    margin-right: 50px;
+}
 
     </style>
 {% endblock %}
 
 {% block content %}
-    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="container rounded bg-white mt-5 mb-5 main-content">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="img-circle" width="150px" src={% static "images/doge.jpg" %}><span class="text-black-50">{{user_info.email}}</span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="img-circle profile" width="150px" src={% static "images/doge.jpg" %}></div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -23,27 +41,17 @@
                         {% csrf_token %}
                             {% for field in form %}
                             <div class="form-group" class="col-md-12">
-                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                <label class="form_label"  for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 {{ field }}
                                 <span class="error-msg" style="color: red">{{ field.errors.0 }}</span>
                             </div>
                             {% endfor %}
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">省份</label><input type="text" class="form-control" placeholder="enter address line 1" value="天津市"></div>
-                    <div class="col-md-12"><label class="labels">详细地址</label><input type="text" class="form-control" placeholder="enter address line 2" value="南开大学泰达校区"></div>
-                    <div class="col-md-12"><label class="labels">邮政编码</label><input type="text" class="form-control" placeholder="enter address line 2" value="362200"></div>
-                    <div class="col-md-12"><label class="labels">教育阶段</label><input type="text" class="form-control" placeholder="education" value="本科"></div>
-                </div>
+
                 <input type="submit" value="保存" class="btn btn-primary">
                 </form>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="col-md-12"><label class="labels">个性签名</label><input type="text" class="form-control" placeholder="experience" value="这个人是条懒狗，什么都没有留下。"></div> <br>
-                <div class="col-md-12"><label class="labels">备注</label><input type="text" class="form-control" placeholder="additional details" value="这个是条懒狗，什么都没有留下。"></div>
-            </div>
-        </div>
+
     </div>
 </div>
 
