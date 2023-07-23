@@ -16,7 +16,7 @@
                 color:unset;
             }
             h1 {
-                margin-top: 100px;
+                margin-top: 50px;
                 text-align: center;
             }
 
@@ -37,6 +37,7 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+                height:3em;
             }
 
             .item:hover {
@@ -44,9 +45,12 @@
                 transform: scale(1.01);
             }
 
-            .item {
-                margin-bottom: 20px;
-
+           .item{
+           border: 1px solid rgba(0, 0, 0, 0);
+        }
+            .item_img{
+                 width:300px !important;
+                 height:400px !important;
             }
         </style>
     </head>
@@ -64,7 +68,7 @@
                 <div class="col-sm-4 col-md-3 item">
                     <div class="thumbnail">
                         <a href="/item/details/{{ item.id }} ">
-                            <img src="/static/images/{{ item.img_index }}" alt="..." width="300px" height="400px">
+                            <img class="item_img"   src="/static/images/{{ item.img_index }}" alt="...">
                             <div class="caption">
                                 <h3>
                                     ￥

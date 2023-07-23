@@ -15,6 +15,21 @@
         #btnFavorite a{
             color: white;
         }
+        .thumbnail .item_img{
+          width: 200px !important;
+          height:200px !important;
+        }
+        .ellipsis {
+            height: 42px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 显示2行文本 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+        }
+        p{
+            margin-bottom: 0;
+        }
     </style>
     <div class="container">
         <h1 class="my-4">我的在售</h1>
@@ -23,14 +38,14 @@
             {% for item in on_sales %}
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top" alt="货品图片1"
-                             width="200px">
+                        <img   src="{% static 'images/' %}{{ item.img_index }}" class="card-img-top item_img" alt="货品图片1"
+                             >
                         <div class="caption">
-                            <h5 class="card-title">商品名称: {{ item.gname }}</h5>
-                            <p class="card-text">商品描述: {{ item.intro_txt }}</p>
-                            <p class="card-text">价格: {{ item.price }}</p>
-                            <p class="card-text">出售者: {{ user_info.username }}</p>
-                            <p class="card-text">联系方式: {{ item.phone }}</p>
+                            <p class="card-title ellipsis"><strong>商品名称: {{ item.gname }}</strong></p>
+                            <p class="card-text ellipsis">商品描述: {{ item.intro_txt }}</p>
+                            <p class="card-text ellipsis">价格: {{ item.price }}￥</p>
+                            <p class="card-text ellipsis">出售者: {{ user_info.username }}</p>
+                            <p class="card-text ellipsis">联系方式: {{ item.phone }}</p>
 
                                 <a href="/item/edit_details/{{ item.id }}">
                                     <button id="btnFavorite" class="btn btn-primary" role="button">修改</button></a>
