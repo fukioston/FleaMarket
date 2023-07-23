@@ -151,11 +151,11 @@ def edit_details(request, gid):
         if info:
             user_id = info['id']
             query_set = UserInfo.objects.filter(id=user_id).first()
-            item_info = Items.objects.filter(id=gid).values_list('gname', 'price', 'intro_txt', 'img_index').first()
+            item_info = Items.objects.filter(id=gid).values_list('gname', 'price', 'intro_txt', 'img_index','phone').first()
             item_info2 = {'gname': item_info[0], 'price': item_info[1], 'intro_txt': item_info[2],
-                          'img_index': item_info[3]}
+                          'img_index': item_info[3],'phone':item_info[4]}
             form = ItemForm(request, initial=item_info2)
-            return render(request, 'layout/edit_details.html', {'user_info': query_set, 'form': form})
+            return render(request, 'layout/edit_details.html', {'user_info': query_set, 'form': form,'img_index':item_info[3]})
 
     form = ItemForm(request, data=request.POST)
     item = Items.objects.filter(id=gid).first()
@@ -168,7 +168,7 @@ def edit_details(request, gid):
         item.price = new_price
         item.save()
         print('info_saved!')
-        return redirect('/user/home/')
+        return redirect('/user/on_sales')
 
 def gdelete(request, gid):
     gid = int(gid)

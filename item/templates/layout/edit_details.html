@@ -4,8 +4,25 @@
 {% block css %}
     <style>
         img{
-            width: 200px;
+            width: 400px;
+
+            margin-right: 100px;
         }
+        .col-md-5{
+            margin-right: 30px;
+            margin-top: 40px;
+            margin-left: 50px;
+            width:600px;
+
+        }
+        .myform{
+            margin-left: 200px;
+        }
+        .itemimg{
+            margin-top: 100px;
+        }
+
+
 
     </style>
 {% endblock %}
@@ -14,9 +31,9 @@
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="img-circle" width="150px" src={% static "images/doge.jpg" %}><span class="text-black-50">{{user_info.email}}</span></div>
+            <div class="itemimg d-flex flex-column align-items-center text-center p-3 py-5"><img   src="{% static 'images/' %}{{ img_index }}"><span class="text-black-50">{{user_info.email}}</span></div>
         </div>
-        <div class="col-md-5 border-right">
+        <div class="myform col-md-5 border-right">
             <div class="p-3 py-5">
                 <form method="post" novalidate>
                         {% csrf_token %}

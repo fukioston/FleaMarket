@@ -8,7 +8,7 @@ from item.form.bootstrap import BootStrap
 class ItemForm(BootStrap,forms.Form):
     gname = forms.CharField(
         label='商品名',
-        widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        widget=forms.Textarea(attrs={'rows': 6, 'cols': 40}),
         required=True,
     )
     price = forms.CharField(
@@ -18,6 +18,11 @@ class ItemForm(BootStrap,forms.Form):
     )
     intro_txt= forms.CharField(
         label='介绍',
+        widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        required=True,
+    )
+    phone=forms.CharField(
+        label='联系电话',
         widget=forms.Textarea(attrs={'rows': 5, 'cols': 40}),
         required=True,
     )
