@@ -43,18 +43,19 @@ def edit_info(request):
     user = UserInfo.objects.filter(id=user_id).first()
     if form.is_valid():
         file = request.FILES.get('file')
-        newimg = file.name
+        if file:
+            newimg = file.name
+            user.profile_img=newimg
+            with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+                for line in file.chunks():
+                    f.write(line)
         new_name = form.cleaned_data['username']
         new_phone = form.cleaned_data['mobile_phone']
         new_email = form.cleaned_data['email']
         user.username = new_name
         user.mobile_phone = new_phone
         user.email = new_email
-        user.profile_img=newimg
         user.save()
-        with open(os.path.join('static/profile_img', file.name), 'wb') as f:  # 在static目录下创建同名文件
-            for line in file.chunks():
-                f.write(line)  # 逐行读取上传的文件内容并写入新创建的同名文件
         print('info_saved!')
         return redirect('/user/home/')
 

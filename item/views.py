@@ -152,11 +152,19 @@ def edit_details(request, gid):
         new_gname = form.cleaned_data['gname']
         new_intro_txt = form.cleaned_data['intro_txt']
         new_phone=form.cleaned_data['phone']
+        file = request.FILES.get('file')
+        if file:
+            newimg = file.name
+            item.img_index = newimg
+            with open(os.path.join('static/images', file.name), 'wb') as f:  # 在static目录下创建同名文件
+                for line in file.chunks():
+                    f.write(line)
         item.gname = new_gname
         item.intro_txt = new_intro_txt
         item.price = new_price
         item.phone=new_phone
         item.save()
+
         print('info_saved!')
         return redirect('/user/on_sales')
 def gdelete(request, gid):

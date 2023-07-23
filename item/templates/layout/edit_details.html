@@ -3,9 +3,9 @@
 
 {% block css %}
     <style>
-        img{
+        .item_img{
             width: 400px;
-
+            height: 400px;
             margin-right: 100px;
         }
         .col-md-5{
@@ -16,6 +16,7 @@
 
         }
         .myform{
+            display: flex;
             margin-left: 200px;
         }
         .itemimg{
@@ -24,6 +25,24 @@
         textarea {
         resize: none;
     }
+        .upload-profile{
+            width:100px;
+            height: 30px;
+            margin-left: 160px;
+            margin-top: 20px;
+        }
+        .upload-form{
+            display: flex;
+            width:1000px;
+
+        }
+        .upload-form-left,.upload-form-right{
+            width:400px;
+            margin-right: 100px;
+        }
+        .upload-form-left{
+            margin-top: 50px;
+        }
 
 
     </style>
@@ -32,15 +51,19 @@
 {% block content %}
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="itemimg d-flex flex-column align-items-center text-center p-3 py-5">
-                <img   src="{% static 'images/' %}{{ img_index }}">
-            </div>
-        </div>
+
         <div class="myform col-md-5 border-right">
             <div class="p-3 py-5">
-                <form method="post" novalidate>
+
+                <form name="form1" method="post" novalidate enctype="multipart/form-data">
+                <div class="upload-form">
                         {% csrf_token %}
+                <div class="upload-form-left">
+                    <img  class="item_img" id="item_img" src="{% static 'images/' %}{{ img_index }}">
+                <input  id="fileInput" type="file" name="file"  style="display:none;" accept=".jpg,.png,.jpeg">
+　               <input class="upload-profile" type="button" value="更换商品图片" onclick="document.form1.fileInput.click()">
+                </div>
+<div class="upload-form-right">
                             {% for field in form %}
                                 {% if field.name == 'intro_txt' %}
                                     <div class="form-group" class="col-md-12">
@@ -60,11 +83,33 @@
                             {% endfor %}
 
                 <input type="submit" value="保存" class="btn btn-primary">
+</div>
+                </div>
                 </form>
+
+
             </div>
         </div>
 
     </div>
 </div>
+{% block js %}
+        <script>
+    const fileInput = document.getElementById('fileInput');
+    const itemPicture = document.getElementById('item_img');
 
+    fileInput.addEventListener('change', function () {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function () {
+            itemPicture.src = reader.result;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+{% endblock %}
 {% endblock %}
